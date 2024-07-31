@@ -1,4 +1,4 @@
-# 7月31日 | SingBox每天更新22M/S免费节点订阅链接  更新时间 2024-07-31 00:34:10
+# 7月31日 | SingBox每天更新18.2M/S免费节点订阅链接  更新时间 2024-07-31 10:24:59
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://singboxwindows.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：

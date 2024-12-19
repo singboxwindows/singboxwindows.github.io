@@ -53,7 +53,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>新建两张表a_table和b_table，如果把表格当作一个集合，那么表格中的记录就是集合中的一个元素。<br /> 表a：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/675bb3458b88a5318c08a61f00872c03.jpg"><br /> 表b：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/878abc192aa5b91c2c9fb3f10fb1cce4.jpg"><br /> 1.内连接（只有一种场景）<br /> select a.<em>,b.</em> from a_table a inner join b_table b on a.a_id=b.b_id;<br /> 或<br /> select a.<em>,b.</em> from a_table a join b_table b on a.a_id=b.b_id;</p> <p>求两个集合的交集：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/b546fcaf81bd68a95ada489abd27bca2.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/4f75f96b639dbed95546e543d4e586c5.jpg"></p> <p>2.外连接（左外连接、又外连接、全连接）<br /> 2.1.左外连接<br /> select a.<em>,b.</em> from a_table a left join b_table b on a.a_id=b.b_id;<br /> 或<br /> select a.<em>,b.</em> from a_table a left outer join b_table b on a.a_id=b.b_id;<br /> 结果集：LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/05d48493f70e3760994bcbe5b44f02ea.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/8ca794161a14540773b75cec2e2ca0ba.jpg"></p> <p>2.2.右外连接<br /> select a.<em>,b.</em> from a_table a right join b_table b on a.a_id=b.b_id;<br /> 或<br /> select a.<em>,b.</em> from a_table a right outer join b_table b on a.a_id=b.b_id;<br /> 结果集：将返回右表的所有行。如果右表的某行在左表中没有匹配行，则将为左表返回空值。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/f764b425f1fe7811e88321fb55dd7072.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/ad7f81d9cf740f365b61eebd3cc00eba.jpg"></p> <p>2.3.全连接<br /> full join （mysql不支持，但是可以用 left join union right join代替）<br /> select a.<em>,b.</em> from a_table a left join b_table b on a.a_id=b.b_id union select a.<em>,b.</em> from a_table a right join b_table b on a.a_id=b.b_id；<br /> 结果集：完整外部联接返回左表和右表中的所有行。当某行在另一个表中没有匹配行时，则另一个表的选择列表列包含空值。如果表之间有匹配行，则整个结果集行包含基表的数据值。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/9e729c87e2d6ef2d1c70556e7702d5d4.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/2bf6074873f69138c1f437534390be1c.jpg"></p> <p>3.交叉连接（cross join）<br /> select a.<em>,b.</em> from a_table a cross join b_table b;<br /> 结果集：实际应用中还有这样一种情形，想得到A，B记录的排列组合，即笛卡儿积。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/91138d06dd0c8b865caeffe978cf8ee1.jpg"></p> </div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>新建两张表a_table和b_table，如果把表格当作一个集合，那么表格中的记录就是集合中的一个元素。<br /> 表a：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/675bb3458b88a5318c08a61f00872c03.jpg"><br /> 表b：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/878abc192aa5b91c2c9fb3f10fb1cce4.jpg"><br /> 1.内连接（只有一种场景）<br /> select a.<em>,b.</em> from a_table a inner join b_table b on a.a_id=b.b_id;<br /> 或<br /> select a.<em>,b.</em> from a_table a join b_table b on a.a_id=b.b_id;</p> <p>求两个集合的交集：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/b546fcaf81bd68a95ada489abd27bca2.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/4f75f96b639dbed95546e543d4e586c5.jpg"></p> <p>2.外连接（左外连接、又外连接、全连接）<br /> 2.1.左外连接<br /> select a.<em>,b.</em> from a_table a left join b_table b on a.a_id=b.b_id;<br /> 或<br /> select a.<em>,b.</em> from a_table a left outer join b_table b on a.a_id=b.b_id;<br /> 结果集：LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/05d48493f70e3760994bcbe5b44f02ea.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/8ca794161a14540773b75cec2e2ca0ba.jpg"></p> <p>2.2.右外连接<br /> select a.<em>,b.</em> from a_table a right join b_table b on a.a_id=b.b_id;<br /> 或<br /> select a.<em>,b.</em> from a_table a right outer join b_table b on a.a_id=b.b_id;<br /> 结果集：将返回右表的所有行。如果右表的某行在左表中没有匹配行，则将为左表返回空值。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/f764b425f1fe7811e88321fb55dd7072.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/ad7f81d9cf740f365b61eebd3cc00eba.jpg"></p> <p>2.3.全连接<br /> full join （mysql不支持，但是可以用 left join union right join代替）<br /> select a.<em>,b.</em> from a_table a left join b_table b on a.a_id=b.b_id union select a.<em>,b.</em> from a_table a right join b_table b on a.a_id=b.b_id；<br /> 结果集：完整外部联接返回左表和右表中的所有行。当某行在另一个表中没有匹配行时，则另一个表的选择列表列包含空值。如果表之间有匹配行，则整个结果集行包含基表的数据值。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/9e729c87e2d6ef2d1c70556e7702d5d4.jpg"><br /> 如图：<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/2bf6074873f69138c1f437534390be1c.jpg"></p> <p>3.交叉连接（cross join）<br /> select a.<em>,b.</em> from a_table a cross join b_table b;<br /> 结果集：实际应用中还有这样一种情形，想得到A，B记录的排列组合，即笛卡儿积。<br /><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads/20221105/91138d06dd0c8b865caeffe978cf8ee1.jpg"></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-26027.htm">58同城免费领养宠物猫可靠吗（五八同城宠物猫领养）</a></p>
                                         <p>下一个：<a href="/news/article-26509.htm">宠物美容师底薪一般多少钱（宠物美容师工资一般多少钱一个月）</a></p>
@@ -66,16 +67,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-25124.htm" title="上海领养宠物狗电话是多少（上海宠物领养地址）">上海领养宠物狗电话是多少（上海宠物领养地址）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-node-subscribe.htm" title="9月24日 | SingBox每天更新19.7M/S免费节点订阅链接">9月24日 | SingBox每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-node-subscribe-links.htm" title="12月8日 | SingBox每天更新18M/S免费节点订阅链接">12月8日 | SingBox每天更新18M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22808.htm" title="动物医院地址查询官网下载（动物医院诊疗范围）">动物医院地址查询官网下载（动物医院诊疗范围）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share.htm" title="11月1日 | SingBox每天更新21.1M/S免费节点订阅链接">11月1日 | SingBox每天更新21.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-30-free-subscribe-node.htm" title="「7月30日」最高速度22.3M/S，2024年SingBox Windows每天更新免费节点订阅链接">「7月30日」最高速度22.3M/S，2024年SingBox Windows每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-subscribe-node.htm" title="11月6日 | SingBox每天更新18.9M/S免费节点订阅链接">11月6日 | SingBox每天更新18.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-node-share.htm" title="10月27日 | SingBox每天更新22.7M/S免费节点订阅链接">10月27日 | SingBox每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-14-today-sing-box-node.htm" title="8月14日 | SingBox每天更新21.5M/S免费节点订阅链接">8月14日 | SingBox每天更新21.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21425.htm" title="北京宠物疫苗哪里打（北京宠物疫苗哪里打便宜）">北京宠物疫苗哪里打（北京宠物疫苗哪里打便宜）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-30-free-subscribe-node.htm" title="8月30日 | SingBox每天更新21M/S免费节点订阅链接">8月30日 | SingBox每天更新21M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-sing-box-node.htm" title="10月7日 | SingBox每天更新20.2M/S免费节点订阅链接">10月7日 | SingBox每天更新20.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-24-sing-box-node-github.htm" title="8月24日 | SingBox每天更新22.7M/S免费节点订阅链接">8月24日 | SingBox每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-subscribe-node.htm" title="10月31日 | SingBox每天更新23M/S免费节点订阅链接">10月31日 | SingBox每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-sing-box-node-windows.htm" title="11月28日 | SingBox每天更新20.4M/S免费节点订阅链接">11月28日 | SingBox每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25582.htm" title="动物疫苗行业分析报告 动物疫苗行业分析报告怎么写">动物疫苗行业分析报告 动物疫苗行业分析报告怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-20057.htm" title="动物疫苗市场竞争（动物疫苗行业）">动物疫苗市场竞争（动物疫苗行业）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-sing-box-github.htm" title="11月14日 | SingBox每天更新19.4M/S免费节点订阅链接">11月14日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-10-free-node-subscribe-links.htm" title="8月10日 | SingBox每天更新21.4M/S免费节点订阅链接">8月10日 | SingBox每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-sing-box-node-share.htm" title="10月25日 | SingBox每天更新20.4M/S免费节点订阅链接">10月25日 | SingBox每天更新20.4M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -87,7 +88,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">50</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">53</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -116,6 +117,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
                         <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
                     </div>
                 </div>

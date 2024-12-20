@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-28372.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>python3 使用 python-redis-lock 编写锁，解决并发计算问题</title>
+        <meta name="description" content="需求 我在最近的一个任务中，存在一个redis高并发计算多个客户端接收预警信息的时长问题。 模型是首先模拟多个客户端连接预警服务器集群，然后向预警服务集群发送告警信息。随后预警服务集群将会向客户端推送" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+                        <a class="navbar-brand" href="/">Sing Box Windows</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="#">关于</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">联系</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">python3 使用 python-redis-lock 编写锁，解决并发计算问题</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>需求</h2> <p>我在最近的一个任务中，存在一个redis高并发计算多个客户端接收预警信息的时长问题。</p> <p>模型是首先模拟多个客户端连接预警服务器集群，然后向预警服务集群发送告警信息。随后预警服务集群将会向客户端推送告警信息。</p> <p>此时，我记录了发送告警至预警集群的时间，并且在客户端还会记录接收到告警的时间。</p> <p>我将这个时间都会记录到redis中，那么此时就会有一个问题，当多个客户端抢占式往redis 读取数据，计算，设置数据，这个过程是会被相互覆盖的。</p> <div class="image-package"> <div class="image-container"> <div class="image-container-fill"></div> <div class="image-view">    <img decoding="async" src="http://img.555519.xyz/uploads/20230118/12b32f2a8007177ea371bd9fc9f8e6df.jpg" alt="python3 使用 python-redis-lock 编写锁，解决并发计算问题"> </div> </p></div> <div class="image-caption"></div> </div> <p>可以从上面的截图来看，多个不同的客户端读取redis的数据，大部分读取到了同一个数据，导致计算错误。</p> <p>导致问题的示意图如下：</p> <div class="image-package"> <div class="image-container"> <div class="image-container-fill"></div> <div class="image-view">    <img decoding="async" src="http://img.555519.xyz/uploads/20230118/104ff6c7125eac1c1b2b9be3caf6eb5a.jpg" alt="python3 使用 python-redis-lock 编写锁，解决并发计算问题"> </div> </p></div> <div class="image-caption"></div> </div> <p>为了解决这个问题，则可以编写一个redis的锁，用来控制数据的并发读取以及写入。<br /> 在python redis库默认只有乐观锁的一种写法，在这里我再推荐使用一个库<strong>python-redis-lock</strong>，使用这个库对redis多个客户端并发的情况加锁，真的很方便。<br /> 下面来看看怎么使用。</p> <h2>python-redis-lock</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=https%3A%2F%2Fpypi.org%2Fproject%2Fpython-redis-lock%2F"  rel="nofollow">https://pypi.org/project/python-redis-lock/</a></p> <p>在使用这个库之前，需要安装如下：</p> <pre><code>pip install python-redis-lock </code></pre> <p>使用锁的示例：</p> <pre><code>lock = redis_lock.Lock(conn, "name-of-the-lock") if lock.acquire(blocking=False):     print("Got the lock.")     lock.release() else:     print("Someone else has the lock.") </code></pre> <p>上面是单独设置锁的方式，还可以单独设置所有redis的操作加入锁。</p> <pre><code># On application start/restart import redis_lock redis_lock.reset_all(redis_client) </code></pre> <h2>修改业务代码，增加lock操作</h2> <p><strong>1. 首先导入redis_lock</strong></p> <pre><code>import redis_lock </code></pre> <p><strong>2.将redis连接的客户端传入lock中，并设置lock的名称</strong></p> <pre><code># 设置redis连接 self.conn = redis.Redis(host='127.0.0.1', port=6379, decode_responses=True, db=3)  # 设置redis锁 self.lock = redis_lock.Lock(self.conn, "redis-lock") </code></pre> <p><strong>3.将业务读取、设置redis的部分加入锁</strong></p> <pre><code>while True:     # 设置redis锁，操作redis     if self.lock.acquire(blocking=False):         print("Got the lock.")         # 获取lock，执行业务处理         # 获取当前redis钟记录的客户端接收到告警的总时长         recv_time_sum_count_clients = self.conn.get(recv_time_sum_count_clients_key)         if recv_time_sum_count_clients is None:             recv_time_sum_count_clients = "0:0"          # 获取当前的统计数据         recv_time_sum, count_clients = recv_time_sum_count_clients.split(":")          # 计算告警接收总时长         recv_time_sum = float(recv_time_sum) + recv_time         # 计算收到预警的客户端数量         count_clients = int(count_clients) + 1          # 写入redis中         recv_time_sum_count_clients = "%s:%s" % (str(recv_time_sum), str(count_clients))         self.conn.set(recv_time_sum_count_clients_key, recv_time_sum_count_clients)          print("user_id = %s, 计算平均时间成功, "               "recv_time_sum = %s, count_clients = %s \n" %               (self.user_id, recv_time_sum, count_clients))          # 释放lock         self.lock.release()          # 退出循环         break     else:         print("Someone else has the lock.")             </code></pre> <p>在客户端的代码中设置了锁之后，再来执行一下，看看有无抢占读取redis数据的情况，如下：</p> <div class="image-package"> <div class="image-container"> <div class="image-container-fill"></div> <div class="image-view">    <img decoding="async" src="http://img.555519.xyz/uploads/20230118/57ed119a94068f843fa5504b1390b1d2.jpg" alt="python3 使用 python-redis-lock 编写锁，解决并发计算问题"> </div> </p></div> <div class="image-caption"></div> </div> <p>设置了锁之后，客户端由于并发导致redis数据读取、设置错误的情况就可以避免了。</p> <p>并且这个库还可以使用到Django框架中，更多细节读者可以到该库Github中细细查阅，本篇章就不介绍了，哈哈。</p> <div class="image-package"> <div class="image-caption"></div> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-27911.htm">动物疫苗的作用是什么意思 动物疫苗的作用是什么意思啊</a></p>
+                                        <p>下一个：<a href="/news/article-28373.htm">为什么给猫打针打不进去了（为什么给猫打疫苗打不进去）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-20-sing-box-node-github.htm" title="8月20日 | SingBox每天更新20.5M/S免费节点订阅链接">8月20日 | SingBox每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share.htm" title="11月1日 | SingBox每天更新21.1M/S免费节点订阅链接">11月1日 | SingBox每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-today-sing-box-node.htm" title="9月29日 | SingBox每天更新18M/S免费节点订阅链接">9月29日 | SingBox每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-today-sing-box-node.htm" title="12月9日 | SingBox每天更新19.4M/S免费节点订阅链接">12月9日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27442.htm" title="学宠物美容有前途吗男生（男的学宠物美容怎么样）">学宠物美容有前途吗男生（男的学宠物美容怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-sing-box-node-windows.htm" title="10月19日 | SingBox每天更新18.3M/S免费节点订阅链接">10月19日 | SingBox每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28372.htm" title="python3 使用 python-redis-lock 编写锁，解决并发计算问题">python3 使用 python-redis-lock 编写锁，解决并发计算问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-sing-box-github.htm" title="11月14日 | SingBox每天更新19.4M/S免费节点订阅链接">11月14日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share-links.htm" title="11月25日 | SingBox每天更新21.7M/S免费节点订阅链接">11月25日 | SingBox每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-sing-box-node.htm" title="10月2日 | SingBox每天更新18.6M/S免费节点订阅链接">10月2日 | SingBox每天更新18.6M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

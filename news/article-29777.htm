@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-29777.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>springboot的依赖管理和自动配置</title>
+        <meta name="description" content="依赖管理 根据springboot官方文档建立一个springboot项目 我们导入父工程 &lt;parent&gt;&lt;groupId&gt;org.springframework.boot&" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+                        <a class="navbar-brand" href="/">Sing Box Windows</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="#">关于</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">联系</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">springboot的依赖管理和自动配置</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h2><a id="_0" rel="nofollow"></a>依赖管理</h2> <p>根据springboot官方文档建立一个springboot项目<br /> 我们导入父工程</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>parent</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-parent<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>2.5.4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>parent</span><span class="token punctuation">&gt;</span></span></code></pre> <p>然后再导入对应的web场景的starter</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">&gt;</span></span></code></pre> <p>我们就可以使用web场景的一些常见的依赖。<br /> 我们进入当前项目的父工程里发现里面还继承了<strong>spring-boot-dependencies</strong>。里面定义了所有场景对应的依赖及其版本号。<br /> 我们如果在导入依赖的时候，若是springboot的父项目里已经定义了我们需要导入的依赖，我们可以不需要定义version，springboot会自动帮我们导入默认的版本号，这称为<strong>版本仲裁</strong>。<br /> 那么如果我们需要自定义版本号又该如何定义呢？<br /> 例如导入mysql.connector</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>mysql<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>mysql-connector-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre> <p>springboot会自动仲裁版本为8.0.26<br /> 如需要自定义版本，则再自己的maven工程里加入</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>properties</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>mysql.version</span><span class="token punctuation">&gt;</span></span>5.1.47<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>mysql.version</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>properties</span><span class="token punctuation">&gt;</span></span></code></pre> <p>这样就会将版本改为5.1.47。<br /> 首先，我们需要查看spring-boot-dependencies里规定的依赖版本，找到其用的key，在当前项目里重写配置就行。在maven里遵循就近优先原则。<br /><strong>关于场景启动器</strong>，springboot的start命名规范spring-boot-starter-*， * 代表了各种对应的开发场景。<br /> springboot所有支持的场景<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.build-systems.starters"  rel="nofollow">点击此处进行查看</a> 。<br /> 也有许多第三方会去做springboot的场景启动器 *-spring-boot-starter。<br /> 如果你需要的依赖不在springboot的场景启动器提供的依赖里，则需要手动添加依赖并声明version。</p> <h2><a id="_48" rel="nofollow"></a>自动配置</h2> <p>在我们导入场景启动器后，会有大量的依赖导入到工程里。例如，我们导入web场景的启动器。写一个简单的Controller，启动springboot项目</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@RestController</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">HelloController</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"/hello"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token class-name">String</span><span class="token function">handle01</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token string">"Hello SpringBoot"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>我们可以看见，可以的访问我们的请求路径。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/39bf92638d01bd056e36f0bd95f74ecb.jpg" alt="springboot的依赖管理和自动配置"></p> <p>就例如spring-boot-starter-web里有webmvc，在以往学习mvc时会需要有一堆的配置，例如dispatcherServlet，乱码的配置，文件上传，视图解析器等等。那么虽然依赖导入了，<strong>但是配置我们却还没有配置</strong>，应用程序也能正常工作。<br /> 我们可以在springboot的主程序入口查看对应的IOC容器。</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@SpringBootApplication</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">MainApplication</span><span class="token punctuation">{<!-- --></span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 1.返回IOC容器</span><span class="token class-name">ConfigurableApplicationContext</span> run<span class="token operator">=</span><span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">MainApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 2.查看容器里的组件</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> names<span class="token operator">=</span> run<span class="token punctuation">.</span><span class="token function">getBeanDefinitionNames</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token operator">:</span> names<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>在启动项目的时候，会罗列出IOC容器里的组件名称 （组件过多，就不一一罗列）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/96d1fe091da17cfd9e858cbc782d0891.jpg" alt="springboot的依赖管理和自动配置"><br /> 在学习Spring时，会有包扫描的配置，可是我们在springboot里并没有配置，让springboot去扫描哪些包下的组件，那又是如何进容器的？<br /> springboot会自动扫描主程序所在的包及其子包，都会被扫描进容器。<br /> 若是你的组件不按照springboot的默认规则来进行存放，但也想进行容器里有以下两种方式</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@SpringBootApplication</span><span class="token punctuation">(</span>scanBasePackages<span class="token operator">=</span><span class="token string">"com"</span><span class="token punctuation">)</span></code></pre> <p>或者</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>basePackages<span class="token operator">=</span><span class="token string">"com"</span><span class="token punctuation">)</span></code></pre> <p>在springboot项目里我们可以通过properties或者yaml文件来配置项目的一些属性，那么这些属性值又是如何生效的呢？<br /> 其实在配置文件里的值，他都是绑定到对应容器里的组件，就例如server.port</p> <pre><code class="prism language-java">server<span class="token punctuation">.</span>port<span class="token operator">=</span><span class="token number">8080</span></code></pre> <p>ctrl+左，我们进入可以发现它对应的绑定了ServerProperties这个类</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">setPort</span><span class="token punctuation">(</span><span class="token class-name">Integer</span> port<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>port<span class="token operator">=</span> port<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>而这个类在springboot启动的时候会被扫描进容器里<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/c010df8377c953dcd27fc82c03dd1b63.jpg" alt="springboot的依赖管理和自动配置"><br /> 这样我们的配置文件就会生效。<br /><strong>按需加载所有自动配置项</strong><br /> spring-boot-dependencies，里有非常多的依赖版本，我们不可能是全部导入到项目中来，按需加载就是按照你导入的场景，会自动导入对应场景的依赖，例如你导入web场景，他就不会给你导入数据场景的依赖。<br /> 关于自动配置，Springboot的自动配置都在spring-boot-autoConfigure里，你导入哪些场景，对应的配置就会生效。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/07f7a5e3662081e10660bc85dc94fde6.jpg" alt="springboot的依赖管理和自动配置"><br /> 例如我们进入batch下查看对应的类，会发现，它有许多类是爆红的<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/a98a62af068bf31a5f1dd929df47c1e4.jpg" alt="springboot的依赖管理和自动配置"><br /> 这是因为我们没有导入对应的batch的starter，我们尝试去导入对应的batch的starter</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-batch<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre> <p>再来查看刚刚的类<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221201/8255f192b256966f83b3b34a369d9208.jpg" alt="springboot的依赖管理和自动配置"><br /> 对应的类就不再爆红。<br /> 关于自动配置，Springboot的自动配置都在spring-boot-autoConfigure里，你导入哪些场景，对应的配置就会生效。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29776.htm">[已解决]pymysql查询语句中带有in时传递参数的问题</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20970.htm" title="动物防疫工作经费用途（基层动物防疫经费落实）">动物防疫工作经费用途（基层动物防疫经费落实）</a></li>
+                        <li class="py-2"><a href="/news/article-28836.htm" title="小型宠物粮食加工设备价格表 小型宠物粮食加工设备价格表图片">小型宠物粮食加工设备价格表 小型宠物粮食加工设备价格表图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-node-subscribe.htm" title="9月30日 | SingBox每天更新19.4M/S免费节点订阅链接">9月30日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-28-sing-box-github.htm" title="8月28日 | SingBox每天更新20.4M/S免费节点订阅链接">8月28日 | SingBox每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25582.htm" title="动物疫苗行业分析报告 动物疫苗行业分析报告怎么写">动物疫苗行业分析报告 动物疫苗行业分析报告怎么写</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-node-share.htm" title="11月12日 | SingBox每天更新21.8M/S免费节点订阅链接">11月12日 | SingBox每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-node-subscribe.htm" title="9月24日 | SingBox每天更新19.7M/S免费节点订阅链接">9月24日 | SingBox每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19601.htm" title="java-websocket断线重连">java-websocket断线重连</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-latest-sing-box-node.htm" title="9月2日 | SingBox每天更新19.8M/S免费节点订阅链接">9月2日 | SingBox每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-sing-box-node-share.htm" title="11月8日 | SingBox每天更新19.4M/S免费节点订阅链接">11月8日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">68</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

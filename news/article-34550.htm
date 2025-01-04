@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-34550.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UnrealEngine创建自定义资产类型</title>
+        <meta name="description" content="这篇文章记录了将UObject实例保存在Asset文件的方法，用这个方法可以将自定义的UObject数据序列化保存到文件，可以用于自定义UE资源类型。   这一步比较简单，按照正常的方式创建C++类即" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+                        <a class="navbar-brand" href="/">Sing Box Windows</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="#">关于</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">联系</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">UnrealEngine创建自定义资产类型</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <blockquote> <p>这篇文章记录了将UObject实例保存在Asset文件的方法，用这个方法可以将自定义的UObject数据序列化保存到文件，可以用于自定义UE资源类型。</p> </blockquote> </h1> <p>这一步比较简单，按照正常的方式创建C++类即可。</p> <p>在这里我创建一个简单的UCustomAsset派生自UObject，包含一个Value字段作为演示。</p> <pre><code class="language-cpp">UCLASS() class LEARNUI_API UCustomAsset final : public UObject { 	GENERATED_BODY() public: 	UPROPERTY(EditAnywhere, BlueprintReadWrite) 	FString Value; };</code></pre> </h1> <blockquote> <p>这一步是为了在Content窗口中添加右键菜单，像创建其他Asset一样快速创建CustomAsset。主要分为两步，创建对应的Factory和TypeAction类。</p> </blockquote> <h2 id="创建mydatafactory">创建MyDataFactory</h2> <p><code>MyDataFactory</code>中包含了具体的生成UObject实例的实现，我们接下来创建的Asset是由Factory实例化出来的。</p> <pre><code class="language-cpp">UCLASS() class LEARNUIEDITOR_API UMyDataFactory final : public UFactory { 	GENERATED_BODY() public: 	UMyDataFactory(){         // 指定是否可以通过菜单来创建         bCreateNew = true;         // 创建Asset之后是否自动打开编辑         bEditAfterNew = true;         // 指定支持的类型         SupportedClass = UMyData::StaticClass();     }     // 重载FactoryCreateNew方法，创建UMyData实例 	virtual UObject* FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn) override{ 	    return NewObject&lt;UMyData&gt;(InParent, InName, Flags);     } };</code></pre> <h2 id="创建mydatatypeaction">创建MyDataTypeAction</h2> <p><code>FMyDataTypeAction</code>定义了Asset的显示名称、类型、显示颜色和所在分类。</p> <pre><code class="language-cpp">// 至少需要重载以下四个方法 class FMyDataTypeAction final : public FAssetTypeActions_Base { public: 	virtual FText GetName() const override; 	virtual UClass* GetSupportedClass() const override; 	virtual FColor GetTypeColor() const override; 	virtual uint32 GetCategories() override; };</code></pre> <p>以上代码中，<code>GetCategories</code>可以返回引擎中已经注册的Category，也可以使用以下代码注册自己的Category。</p> <pre><code class="language-cpp">Category = FAssetToolsModule::GetModule().Get().RegisterAdvancedAssetCategory(FName("Custom"), FText::FromString("Custom"));</code></pre> <p>需要使用<code>FAssetToolsModule</code>注册<code>FMyDataTypeAction</code>以使其生效。</p> <pre><code class="language-cpp">IAssetTools&amp; AssetTool = FAssetToolsModule::GetModule().Get();  // 创建TypeAction实例并存储起来，方便在合适的时候调用UnregisterAssetTypeActions反注册 AssetTypeActions.Emplace(MakeShared&lt;FMyDataTypeAction&gt;());  for (TSharedPtr&lt;FAssetTypeActions_Base&gt; AssetType : AssetTypeActions) { 	AssetTool.RegisterAssetTypeActions(AssetType.ToSharedRef()); }</code></pre> </h1> <p>在ContentBrowser的<code>Add/Import</code>菜单中，可以看到自定义的MyData类型。</p> <p><img decoding="async" src="https://picgo-1251759020.cos.ap-guangzhou.myqcloud.com/202204162015627.png" alt="UnrealEngine创建自定义资产类型" width="400px"/></p> <p>创建完成后，双击打开编辑窗口，可以修改UProperty字段的值。</p> <p><img decoding="async" src="https://picgo-1251759020.cos.ap-guangzhou.myqcloud.com/202204162017147.png" alt="UnrealEngine创建自定义资产类型" width="400px"/></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34549.htm">vue axios请求分页器</a></p>
+                                        <p>下一个：<a href="/news/article-35022.htm">开一家宠物店需要投资多少（开一家宠物店投资多少钱）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-node-subscribe.htm" title="10月20日 | SingBox每天更新18.2M/S免费节点订阅链接">10月20日 | SingBox每天更新18.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26508.htm" title="MySQL多表查询（内连接和外连接）">MySQL多表查询（内连接和外连接）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-node-subscribe.htm" title="12月12日 | SingBox每天更新20.7M/S免费节点订阅链接">12月12日 | SingBox每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-sing-box-node-windows.htm" title="10月4日 | SingBox每天更新21.4M/S免费节点订阅链接">10月4日 | SingBox每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-3-sing-box-node-share.htm" title="8月3日 | SingBox每天更新18M/S免费节点订阅链接">8月3日 | SingBox每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-14-today-sing-box-node.htm" title="8月14日 | SingBox每天更新21.5M/S免费节点订阅链接">8月14日 | SingBox每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-sing-box-node-windows.htm" title="10月19日 | SingBox每天更新18.3M/S免费节点订阅链接">10月19日 | SingBox每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-sing-box-github.htm" title="11月11日 | SingBox每天更新21.5M/S免费节点订阅链接">11月11日 | SingBox每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-node-share-links.htm" title="12月30日 | SingBox每天更新22.5M/S免费节点订阅链接">12月30日 | SingBox每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-sing-box-node.htm" title="10月9日 | SingBox每天更新21.8M/S免费节点订阅链接">10月9日 | SingBox每天更新21.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

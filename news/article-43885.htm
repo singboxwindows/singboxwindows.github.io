@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-43885.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>anyMatch和allMatch以及noneMatch的区别</title>
+        <meta name="description" content="一.方法的介绍: boolean anyMatch(Predicate&lt;? super T&gt; predicate) 只要有一个条件满足即返回true boolean allMatch(Pr" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-43885.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="anyMatch和allMatch以及noneMatch的区别" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/b265eb1cd068e8968f3bb66e0225e76e.webp" />
+        <meta property="og:release_date" content="2025-01-21T09:49:33" />
+    <meta property="og:updated_time" content="2025-01-21T09:49:33" />
+        <meta property="og:description" content="一.方法的介绍: boolean anyMatch(Predicate&lt;? super T&gt; predicate) 只要有一个条件满足即返回true boolean allMatch(Pr" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="anyMatch和allMatch以及noneMatch的区别">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+                        <a class="navbar-brand" href="/">Sing Box Windows</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="#">关于</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">联系</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">anyMatch和allMatch以及noneMatch的区别</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><strong>一.方法的介绍:</strong></p> <p><code>boolean anyMatch(Predicate&lt;? super T&gt; predicate)</code><br /> 只要有一个条件满足即返回true</p> <p><code>boolean allMatch(Predicate&lt;? super T&gt; predicate)</code><br /> 必须全部都满足才会返回true</p> <p><code>boolean noneMatch(Predicate&lt;? super T&gt; predicate)</code><br /> 全都不满足才会返回true</p> <p><strong>二.demo演示:</strong></p> <p>目的: 过滤集合中的元素,过滤条件是一个集合中的多个元素</p> <p>1.创建一个实体类:</p> <pre><code> public class User {      private String name;     private String phone;     public User(String name, String phone) {         this.name = name;         this.phone = phone;     }     public User() {     }     public String getName() {         return name;     }     public void setName(String name) {         this.name = name;     }       public String getPhone() {         return phone;     }     public void setPhone(String phone) {         this.phone = phone;     }     @Override     public String toString() {         return "User{" +                 "name='" + name + '\'' +                 ", phone='" + phone + '\'' +                 '}';     } }</code></pre> <p>2.数据的填充和测试:</p> <pre><code>public class TestStream {     public static void main(String[] args) {              User user = new User("李","1223123123");         User user1 = new User("哈哈","412412412");         User user2 = new User("haha","231231");         User user3 = new User("李","4241241241"); 	   /** 	    * 需要过滤的源数据 	    */         List&lt;User&gt; list =  new ArrayList&lt;User&gt;();         list.add(user);         list.add(user1);         list.add(user2);         list.add(user3);         System.out.println(list.size());         /**         * 过滤条件         * 只要名字是haha或者李的对象集合         */         List&lt;User&gt; userList = new ArrayList();         userList.add(new User("haha","2131231"));         userList.add(new User("李","231231"));         System.out.println(userList.size());                  List&lt;User&gt; result = list.stream().filter(users -&gt; userList.stream().anyMatch(user5 -&gt; user5.getName().equals(users.getName()))).collect(Collectors.toList());         System.out.println(result.size());         result.forEach( aa -&gt;{             System.out.println("姓名: "+aa.getName()+"，手机号: "+aa.getPhone());         });     } }</code></pre> <p>3.测试结果:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/5cc06841026673c6fb8de449f20dfdd6.jpg" alt="anyMatch和allMatch以及noneMatch的区别"><br /> 4.补充:<br /> 获取集合中名字是"李"的所有对象</p> <pre><code>List a = list.stream().filter(user4 -&gt; user4.getName().equals("李")).collect(Collectors.toList()); //遍历list集合 a.forEach(System.out::println);</code></pre> <p>心得:<br /> &nbsp;&nbsp;&nbsp;&nbsp;最近通过研究java8的流式集合,发现非常的实用和节约代码的编写时间,建议搭建有时间多学习多用。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-43368.htm">动物疫苗品牌排行榜最新 动物疫苗品牌排行榜最新名单</a></p>
+                                        <p>下一个：<a href="/news/article-43886.htm">vue日期格式处理详解</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-node-share.htm" title="1月15日 | SingBox每天更新20.7M/S免费节点订阅链接">1月15日 | SingBox每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-subscribe-node.htm" title="10月11日 | SingBox每天更新22.5M/S免费节点订阅链接">10月11日 | SingBox每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20970.htm" title="动物防疫工作经费用途（基层动物防疫经费落实）">动物防疫工作经费用途（基层动物防疫经费落实）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-sing-box-github.htm" title="12月21日 | SingBox每天更新18.6M/S免费节点订阅链接">12月21日 | SingBox每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-node-subscribe.htm" title="10月12日 | SingBox每天更新19.1M/S免费节点订阅链接">10月12日 | SingBox每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44358.htm" title="天津宠物博览会官网 天津宠物博览会官网预约">天津宠物博览会官网 天津宠物博览会官网预约</a></li>
+                        <li class="py-2"><a href="/news/article-38416.htm" title="合肥宠物寄养中心 合肥宠物寄养中心地址">合肥宠物寄养中心 合肥宠物寄养中心地址</a></li>
+                        <li class="py-2"><a href="/news/article-21890.htm" title="动物疫苗生产企业排行（动物疫苗生产企业排行榜最新）">动物疫苗生产企业排行（动物疫苗生产企业排行榜最新）</a></li>
+                        <li class="py-2"><a href="/news/article-18730.htm" title="十大动物疫苗公司排名榜最新 十大动物疫苗公司排名榜最新图片">十大动物疫苗公司排名榜最新 十大动物疫苗公司排名榜最新图片</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-sing-box-node.htm" title="10月17日 | SingBox每天更新21.8M/S免费节点订阅链接">10月17日 | SingBox每天更新21.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">65</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

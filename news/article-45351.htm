@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-45351.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objects中的equals方法</title>
+        <meta name="description" content="Objects中的equals方法 与object中的equals不同的是,objects 中的equals方法是为了防止空指针异常, 方法源码 public static boolean(Objec" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-45351.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="Objects中的equals方法" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/acf6339acc2be213ebae251d7ae6a1b9.webp" />
+        <meta property="og:release_date" content="2025-01-24T09:27:09" />
+    <meta property="og:updated_time" content="2025-01-24T09:27:09" />
+        <meta property="og:description" content="Objects中的equals方法 与object中的equals不同的是,objects 中的equals方法是为了防止空指针异常, 方法源码 public static boolean(Objec" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Objects中的equals方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+                        <a class="navbar-brand" href="/">Sing Box Windows</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="#">关于</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">联系</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">Objects中的equals方法</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="Objectsequals_0" rel="nofollow"></a>Objects中的equals方法</h2> <p>与object中的equals不同的是,objects 中的equals方法是为了防止空指针异常,<br /> 方法源码<br /> public static boolean(Object a,Object b){<!-- --><br /> return(a==b)||( a ! =null&amp;&amp; a. equals(b))<br /> }</p> <p>源码理解:就是对两个对象的地址值进行比较或者如果其中一个对象不是空指针的话,那么就可以使用之前object的equals方法来进行比较</p> <p>举例:</p> <p>public class demo04 {<!-- --></p> <pre><code>public static void main(String[] args) {     String a="abc";     String b="abc";      Boolean c=a.equals(b);     System.out.println(c);  }</code></pre> <p>}<br /> 当正常比较两个对象的字符串时,不会报错</p> <p>但是如果使用equals方法的对象字符串的内容变成了null<br /> 那么此时的编译器就会出现空指针异常的问题</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220819/0214f88f6f8cddda22c7b0ee509a448f.jpg" alt="Objects中的equals方法"><br /> 所以在比较两个对象的内容时,还是使用objects中的equals方法,就不会出现这种错误</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220819/f42e8ea837723d540b397f37a36884a2.jpg" alt="Objects中的equals方法"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45350.htm">在拦截器中获取 url 路径里面 @PathVariable 的参数值</a></p>
+                                        <p>下一个：<a href="/news/article-45855.htm">海拉鲁完整地图（海拉鲁图册）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-sing-box-node-share.htm" title="12月15日 | SingBox每天更新19.5M/S免费节点订阅链接">12月15日 | SingBox每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-sing-box-node.htm" title="11月3日 | SingBox每天更新22.1M/S免费节点订阅链接">11月3日 | SingBox每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-latest-sing-box-node.htm" title="11月4日 | SingBox每天更新21.3M/S免费节点订阅链接">11月4日 | SingBox每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-sing-box-node-windows.htm" title="11月28日 | SingBox每天更新20.4M/S免费节点订阅链接">11月28日 | SingBox每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-sing-box-node-github.htm" title="11月18日 | SingBox每天更新19.4M/S免费节点订阅链接">11月18日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30739.htm" title="Java核心知识1：泛型机制详解">Java核心知识1：泛型机制详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-sing-box-node.htm" title="1月12日 | SingBox每天更新20.7M/S免费节点订阅链接">1月12日 | SingBox每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-sing-box-node.htm" title="11月29日 | SingBox每天更新19.8M/S免费节点订阅链接">11月29日 | SingBox每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20056.htm" title="动物经营类游戏（动物模拟经营类游戏）">动物经营类游戏（动物模拟经营类游戏）</a></li>
+                        <li class="py-2"><a href="/news/article-44858.htm" title="动物疫苗审批流程（动物疫苗审批流程表）">动物疫苗审批流程（动物疫苗审批流程表）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">74</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://singboxwindows.github.io/news/article-27910.htm" />
@@ -9,6 +9,34 @@
     <title>socket.io在egg+vue中的使用</title>
         <meta name="description" content="首先说明一下什么是socket.io，它和websocket、Ajax的区别在哪里。这里就不讲理论和运行机制了（我怕误人子弟…），只说一下我的理解。（socket.io/socketIO/socket" />
         <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-27910.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="socket.io在egg+vue中的使用" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/de60afb40763b7b1e7e200baaf4917aa.webp" />
+        <meta property="og:release_date" content="2024-12-19T09:55:06" />
+    <meta property="og:updated_time" content="2024-12-19T09:55:06" />
+        <meta property="og:description" content="首先说明一下什么是socket.io，它和websocket、Ajax的区别在哪里。这里就不讲理论和运行机制了（我怕误人子弟…），只说一下我的理解。（socket.io/socketIO/socket" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="socket.io在egg+vue中的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
@@ -49,7 +77,7 @@
                 <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </p>
         </div>
-        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
@@ -67,16 +95,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-sing-box-node.htm" title="11月15日 | SingBox每天更新22.9M/S免费节点订阅链接">11月15日 | SingBox每天更新22.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-node-subscribe.htm" title="9月24日 | SingBox每天更新19.7M/S免费节点订阅链接">9月24日 | SingBox每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19144.htm" title="成都宠物领养平台电话号码是多少号（成都宠物领养平台交流微信群）">成都宠物领养平台电话号码是多少号（成都宠物领养平台交流微信群）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-sing-box-node.htm" title="10月9日 | SingBox每天更新21.8M/S免费节点订阅链接">10月9日 | SingBox每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-26026.htm" title="济南宠物免费赠送信息在哪里（济南宠物免费赠送信息在哪里查看）">济南宠物免费赠送信息在哪里（济南宠物免费赠送信息在哪里查看）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-sing-box-node.htm" title="10月8日 | SingBox每天更新20.6M/S免费节点订阅链接">10月8日 | SingBox每天更新20.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-19-sing-box-node-github.htm" title="11月19日 | SingBox每天更新19.1M/S免费节点订阅链接">11月19日 | SingBox每天更新19.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-node-share-links.htm" title="12月22日 | SingBox每天更新19.8M/S免费节点订阅链接">12月22日 | SingBox每天更新19.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-6-free-node-subscribe-links.htm" title="8月6日 | SingBox每天更新20.1M/S免费节点订阅链接">8月6日 | SingBox每天更新20.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-3-sing-box-node.htm" title="9月3日 | SingBox每天更新21.1M/S免费节点订阅链接">9月3日 | SingBox每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42880.htm" title="宠物领养免费平台有哪些公司（宠物领养平台）">宠物领养免费平台有哪些公司（宠物领养平台）</a></li>
+                        <li class="py-2"><a href="/news/article-31710.htm" title="成都宠物领养中心官网招聘电话号码（成都宠物领养公众号）">成都宠物领养中心官网招聘电话号码（成都宠物领养公众号）</a></li>
+                        <li class="py-2"><a href="/news/article-34550.htm" title="UnrealEngine创建自定义资产类型">UnrealEngine创建自定义资产类型</a></li>
+                        <li class="py-2"><a href="/news/article-33593.htm" title="动物疫苗的种类有哪些名称图片及价格（动物疫苗的了解）">动物疫苗的种类有哪些名称图片及价格（动物疫苗的了解）</a></li>
+                        <li class="py-2"><a href="/news/article-33115.htm" title="宠物领养app的名字设计图片大全（领养宠物的软件平台）">宠物领养app的名字设计图片大全（领养宠物的软件平台）</a></li>
+                        <li class="py-2"><a href="/news/article-41875.htm" title="私人手写的协议模板图片（私人写的协议书按手印有效吗）">私人手写的协议模板图片（私人写的协议书按手印有效吗）</a></li>
+                        <li class="py-2"><a href="/news/article-39387.htm" title="劳动节福利~ 我给大家写了个博客园快速发文工具_在线工具">劳动节福利~ 我给大家写了个博客园快速发文工具_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-32643.htm" title="北京观赏医院动物电话（北京观赏动物医院怎么样）">北京观赏医院动物电话（北京观赏动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-18731.htm" title="猫德任务（tbc猫德需要精准吗）">猫德任务（tbc猫德需要精准吗）</a></li>
+                        <li class="py-2"><a href="/news/article-20517.htm" title="动物疫苗价格排行榜最新图片及价格查询 动物疫苗价格排行榜最新图片及价格查询表">动物疫苗价格排行榜最新图片及价格查询 动物疫苗价格排行榜最新图片及价格查询表</a></li>
                     </ul>
     </div>
 </div>
@@ -88,25 +116,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

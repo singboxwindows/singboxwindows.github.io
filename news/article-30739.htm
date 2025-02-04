@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://singboxwindows.github.io/news/article-30739.htm" />
@@ -9,6 +9,34 @@
     <title>Java核心知识1：泛型机制详解</title>
         <meta name="description" content="JDK 1.5开始引入Java泛型（generics）这个特性，该特性提供了编译时类型安全检测机制，允许程序员在编译时检测到非法的类型。泛型的本质是参数化类型，即给类型指定一个参数，然后在使用时再指定" />
         <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-30739.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="Java核心知识1：泛型机制详解" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/719d27ba87b0844cdc4874079196153c.webp" />
+        <meta property="og:release_date" content="2024-12-25T09:38:00" />
+    <meta property="og:updated_time" content="2024-12-25T09:38:00" />
+        <meta property="og:description" content="JDK 1.5开始引入Java泛型（generics）这个特性，该特性提供了编译时类型安全检测机制，允许程序员在编译时检测到非法的类型。泛型的本质是参数化类型，即给类型指定一个参数，然后在使用时再指定" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java核心知识1：泛型机制详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
@@ -49,7 +77,7 @@
                 <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </p>
         </div>
-        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
@@ -67,16 +95,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-20056.htm" title="动物经营类游戏（动物模拟经营类游戏）">动物经营类游戏（动物模拟经营类游戏）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-2-sing-box-node.htm" title="8月2日 | SingBox每天更新21.2M/S免费节点订阅链接">8月2日 | SingBox每天更新21.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-node-subscribe.htm" title="8月13日 | SingBox每天更新19.7M/S免费节点订阅链接">8月13日 | SingBox每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-32643.htm" title="北京观赏医院动物电话（北京观赏动物医院怎么样）">北京观赏医院动物电话（北京观赏动物医院怎么样）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-3-sing-box-node-github.htm" title="12月3日 | SingBox每天更新19.8M/S免费节点订阅链接">12月3日 | SingBox每天更新19.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-node-subscribe.htm" title="10月12日 | SingBox每天更新19.1M/S免费节点订阅链接">10月12日 | SingBox每天更新19.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21890.htm" title="动物疫苗生产企业排行（动物疫苗生产企业排行榜最新）">动物疫苗生产企业排行（动物疫苗生产企业排行榜最新）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-sing-box-node.htm" title="10月9日 | SingBox每天更新21.8M/S免费节点订阅链接">10月9日 | SingBox每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-6-free-node-subscribe.htm" title="10月6日 | SingBox每天更新19M/S免费节点订阅链接">10月6日 | SingBox每天更新19M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-30256.htm" title="成都市宠物领养平台电话是多少（成都宠物领养吧贴吧）">成都市宠物领养平台电话是多少（成都宠物领养吧贴吧）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-sing-box-node-share.htm" title="12月15日 | SingBox每天更新19.5M/S免费节点订阅链接">12月15日 | SingBox每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29301.htm" title="华畜兽药是正规公司吗畜牧（华畜兽药是哪个公司的）">华畜兽药是正规公司吗畜牧（华畜兽药是哪个公司的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-node-share-links.htm" title="1月30日 | SingBox每天更新19.9M/S免费节点订阅链接">1月30日 | SingBox每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33114.htm" title="Python零基础入门篇 ：字典、集合的相关操作">Python零基础入门篇 ：字典、集合的相关操作</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-sing-box-node.htm" title="1月12日 | SingBox每天更新20.7M/S免费节点订阅链接">1月12日 | SingBox每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43368.htm" title="动物疫苗品牌排行榜最新 动物疫苗品牌排行榜最新名单">动物疫苗品牌排行榜最新 动物疫苗品牌排行榜最新名单</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-sing-box-node.htm" title="12月24日 | SingBox每天更新19.3M/S免费节点订阅链接">12月24日 | SingBox每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38417.htm" title="动物防疫疫苗空瓶如何销毁视频 动物防疫疫苗空瓶如何销毁视频播放">动物防疫疫苗空瓶如何销毁视频 动物防疫疫苗空瓶如何销毁视频播放</a></li>
+                        <li class="py-2"><a href="/news/article-49302.htm" title="动物疫苗企业排名榜前十名 动物疫苗企业排名榜前十名有哪些">动物疫苗企业排名榜前十名 动物疫苗企业排名榜前十名有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-sing-box-node-windows.htm" title="12月28日 | SingBox每天更新18.7M/S免费节点订阅链接">12月28日 | SingBox每天更新18.7M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -88,25 +116,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

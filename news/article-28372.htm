@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://singboxwindows.github.io/news/article-28372.htm" />
@@ -9,6 +9,34 @@
     <title>python3 使用 python-redis-lock 编写锁，解决并发计算问题</title>
         <meta name="description" content="需求 我在最近的一个任务中，存在一个redis高并发计算多个客户端接收预警信息的时长问题。 模型是首先模拟多个客户端连接预警服务器集群，然后向预警服务集群发送告警信息。随后预警服务集群将会向客户端推送" />
         <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-28372.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="python3 使用 python-redis-lock 编写锁，解决并发计算问题" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/3e56284df6bb477a59a2f9fc6c8fcbbf.webp" />
+        <meta property="og:release_date" content="2024-12-20T09:36:48" />
+    <meta property="og:updated_time" content="2024-12-20T09:36:48" />
+        <meta property="og:description" content="需求 我在最近的一个任务中，存在一个redis高并发计算多个客户端接收预警信息的时长问题。 模型是首先模拟多个客户端连接预警服务器集群，然后向预警服务集群发送告警信息。随后预警服务集群将会向客户端推送" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python3 使用 python-redis-lock 编写锁，解决并发计算问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
@@ -49,7 +77,7 @@
                 <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
             </p>
         </div>
-        <section class="bg-image-2 position-relative"> <img href="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
@@ -67,16 +95,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-29776.htm" title="[已解决]pymysql查询语句中带有in时传递参数的问题">[已解决]pymysql查询语句中带有in时传递参数的问题</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-node-share-links.htm" title="11月21日 | SingBox每天更新19.2M/S免费节点订阅链接">11月21日 | SingBox每天更新19.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-subscribe-node.htm" title="12月7日 | SingBox每天更新19M/S免费节点订阅链接">12月7日 | SingBox每天更新19M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-32176.htm" title="动物疫苗的制造技术论文怎么写（动物疫苗研究进展）">动物疫苗的制造技术论文怎么写（动物疫苗研究进展）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-sing-box-node.htm" title="11月15日 | SingBox每天更新22.9M/S免费节点订阅链接">11月15日 | SingBox每天更新22.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21890.htm" title="动物疫苗生产企业排行（动物疫苗生产企业排行榜最新）">动物疫苗生产企业排行（动物疫苗生产企业排行榜最新）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-11-node-share-links.htm" title="9月11日 | SingBox每天更新20M/S免费节点订阅链接">9月11日 | SingBox每天更新20M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-4-latest-sing-box-node.htm" title="11月4日 | SingBox每天更新21.3M/S免费节点订阅链接">11月4日 | SingBox每天更新21.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-10-sing-box-node-share.htm" title="9月10日 | SingBox每天更新18.8M/S免费节点订阅链接">9月10日 | SingBox每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-node-subscribe.htm" title="11月5日 | SingBox每天更新19.5M/S免费节点订阅链接">11月5日 | SingBox每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-node-subscribe-links.htm" title="11月13日 | SingBox每天更新22.1M/S免费节点订阅链接">11月13日 | SingBox每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34072.htm" title="动物疫苗销售许可证如何办理的呢（办理动物疫苗销售需要哪些手续）">动物疫苗销售许可证如何办理的呢（办理动物疫苗销售需要哪些手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-node-share-links.htm" title="1月30日 | SingBox每天更新19.9M/S免费节点订阅链接">1月30日 | SingBox每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-41875.htm" title="私人手写的协议模板图片（私人写的协议书按手印有效吗）">私人手写的协议模板图片（私人写的协议书按手印有效吗）</a></li>
+                        <li class="py-2"><a href="/news/article-42368.htm" title="动物疫苗市场占有率多少合适（2021动物疫苗行业前景）">动物疫苗市场占有率多少合适（2021动物疫苗行业前景）</a></li>
+                        <li class="py-2"><a href="/news/article-46341.htm" title="c++动态库与静态库">c++动态库与静态库</a></li>
+                        <li class="py-2"><a href="/news/article-48262.htm" title="全国十大兽药厂家排名 中国最好的兽药厂家">全国十大兽药厂家排名 中国最好的兽药厂家</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-sing-box-node-share.htm" title="12月15日 | SingBox每天更新19.5M/S免费节点订阅链接">12月15日 | SingBox每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20517.htm" title="动物疫苗价格排行榜最新图片及价格查询 动物疫苗价格排行榜最新图片及价格查询表">动物疫苗价格排行榜最新图片及价格查询 动物疫苗价格排行榜最新图片及价格查询表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="12月13日 | SingBox每天更新18.6M/S免费节点订阅链接">12月13日 | SingBox每天更新18.6M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -88,25 +116,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

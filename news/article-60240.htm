@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-60240.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FreeRTOS进阶系统节拍时钟示例的完全解析_操作系统</title>
+        <meta name="description" content="目录  前言 1.调度器正常情况 2.调度器挂起情况 3.自动任务切换    前言 操作系统的运行是由系统节拍时钟驱动的。 在FreeRTOS中，我们知道系统延时和阻塞时间都是以系统节拍时钟周期为单位" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-60240.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="FreeRTOS进阶系统节拍时钟示例的完全解析_操作系统" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/356abe308237bd1398a3f173d75cb408.webp" />
+        <meta property="og:release_date" content="2025-02-21T09:18:45" />
+    <meta property="og:updated_time" content="2025-02-21T09:18:45" />
+        <meta property="og:description" content="目录  前言 1.调度器正常情况 2.调度器挂起情况 3.自动任务切换    前言 操作系统的运行是由系统节拍时钟驱动的。 在FreeRTOS中，我们知道系统延时和阻塞时间都是以系统节拍时钟周期为单位" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="FreeRTOS进阶系统节拍时钟示例的完全解析_操作系统">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="/">
+                        <span>SingBox Windows</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/client.htm">客户端</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">FreeRTOS进阶系统节拍时钟示例的完全解析_操作系统</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">1.调度器正常情况</a></li> <li><a href="#_label2" rel="nofollow">2.调度器挂起情况</a></li> <li><a href="#_label3" rel="nofollow">3.自动任务切换</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>操作系统的运行是由系统节拍时钟驱动的。</p> <p>在FreeRTOS中，我们知道系统延时和阻塞时间都是以系统节拍时钟周期为单位。在配置文件FreeRTOSConfig.h，改变宏configTICK_RATE_HZ的值，可以改变系统节拍时钟的中断频率，也间接的改变了系统节拍时钟周期（T=1/f）。比如设置宏configTICK_RATE_HZ为100，则系统节拍时钟周期为10ms，设置宏configTICK_RATE_HZ为1000，则系统节拍时钟周期为1ms。</p> <p>系统节拍中断服务程序会调用函数xTaskIncrementTick()来完成主要工作，如果该函数返回值为真（不等于pdFALSE），说明处于就绪态任务的优先级比当前运行的任务优先级高。这会触发一次PendSV中断，进行上下文切换。我们重点看一下函数xTaskIncrementTick()做了哪些事情，以及什么情况下返回真值。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>1.调度器正常情况</h2> <p>调度器正常（没有挂起），即变量uxSchedulerSuspended的值为pdFALSE。变量uxSchedulerSuspended是定义在tasks.c文件中的静态变量，记录调度器运行状态。当调用API函数vTaskSuspendAll()挂起调度器时，会将变量uxSchedulerSuspended增1。所以变量uxSchedulerSuspended为真时，表示调度器被挂起。</p> <p>调度器正常情况下，首先将变量xTickCount增1。变量xTickCount也是在tasks.c文件中定义的静态变量，它在启动调度器时被清零，在每次系统节拍时钟发生中断后加1，用来记录系统节拍时钟中断的次数。内核会将所有阻塞的任务跟这个变量比较，以判断是否超时（超时意味着可以解除阻塞）。</p> <p>变量xTickCount的数据类型跟具体硬件有关，32位架构硬件一般是无符号32位变量、8位或16位架构一般是无符号16位变量。即便是32位变量，xTickCount累加到0xFFFFFFFF后也会溢出。因此，在程序中要判断变量xTickCount是否溢出。如果溢出（xTickCount为0），则调用宏taskSWITCH_DELAYED_LISTS()交换延时列表指针和溢出延时列表指针。这个牵扯的有点广，我们慢慢说明。</p> <p>为了解决xTickCount溢出问题，FreeRTOS使用了两个延时列表：xDelayedTaskList1和xDelayedTaskList2。并使用延时列表指针pxDelayedTaskList和溢出延时列表指针pxOverflowDelayedTaskList分别指向上面的延时列表1和延时列表2（在创建任务时将延时列表指针指向延时列表）。顺便说一下，上面的两个延时列表指针变量和两个延时列表变量都是在tasks.c中定义的静态局部变量。</p> <p>比如我们使用API延时函数vTaskDelay(xTicksToDelay)将任务延时xTicksToDelay个系统节拍周期，延时函数会以当前的系统节拍中断次数xTickCount为参考，这个值加上参数规定的延时时间xTicksToDelay，即xTickCount+ xTicksToDelay，就是下次唤醒任务的时间。</p> <p>xTickCount+xTicksToDelay会被记录到任务TCB中，随着任务一起挂接到延时列表。如果内核判断出xTickCount+ xTicksToDelay溢出（大于32位可以表示的最大值），就将当前任务挂接到列表指针pxOverflowDelayedTaskList指向的列表中，否则就挂接到列表指针pxDelayedTaskList指向的列表中。任务按照延时时间，顺序的插入到延时列表中。</p> <p>所以当系统节拍中断次数计数器xTickCount溢出时，必须将延时列表指针pxDelayedTaskList和溢出延时列表指针pxOverflowDelayedTaskList交换以便正确处理延时的任务。宏taskSWITCH_DELAYED_LISTS()的代码如下所示：</p> <div class="ay1code"> <pre class="brush:cpp;">#definetaskSWITCH_DELAYED_LISTS()                                                       \  {                                                                                       \           List_t *pxTemp		                                                        \                                                                                          \           /* The delayed tasks list should beempty when the lists are switched. */       \           configASSERT( ( listLIST_IS_EMPTY( pxDelayedTaskList) ) );                     \                                                                                          \           pxTemp = pxDelayedTaskList;                                                    \           pxDelayedTaskList = pxOverflowDelayedTaskList;                                 \           pxOverflowDelayedTaskList = pxTemp;                                            \           xNumOfOverflows++;                                                             \           prvResetNextTaskUnblockTime                                                    \  }</pre> </div> <p>这段代码完成两部分工作，第一是将延时列表指针pxDelayedTaskList和溢出延时列表指针pxOverflowDelayedTaskList交换；第二是调用函数prvResetNextTaskUnblockTime()重新获取下一次解除阻塞的时间，这个时间保存在静态变量xNextTaskUnblockTime中，该变量也是定义在tasks.c中。下面检查延时列表任务是否到期时，会用到这个变量。<br />接下来函数会检查延时列表，查看延时的任务是否到期。前面我们说过，延时的任务根据延时时间先后，顺序的插入到延时列表中，延时时间短的在前，延时时间长的在后，并且下一个要被唤醒任务的时间数值保存在变量xNextTaskUnblockTime中。所以使用xTickCount与xNextTaskUnblockTime比较就可以知道是否有任务可以被唤醒。</p> <div class="ay1code"> <pre class="brush:cpp;">if( xConstTickCount &gt;=xNextTaskUnblockTime )  {     /* 延时的任务到期，需要被唤醒 */  }</pre> </div> <p>如果任务被唤醒，则将任务从延时列表中删除，重新加入就绪列表。如果新加入就绪列表的任务优先级大于当前任务优先级，则会触发一次上下文切换。</p> <p>FreeRTOS支持多个任务共享同一个优先级，如果设置为抢占式调度（宏configUSE_PREEMPTION设置为1）并且宏configUSE_TIME_SLICING也为1（或未定义），则相同优先级的多个任务间进行任务切换。</p> <p>最后还会调用时间片钩子函数vApplicationTickHook()。可以看到时间片钩子函数实在中断服务函数中调用的，所以这个钩子函数必须简洁、不可以调用不带中断保护的API函数。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>2.调度器挂起情况</h2> <p>如果调度器挂起，正在执行的任务会一直继续执行，内核不再调度（意味着当前任务不会被切换出去），直到该任务调用了xTaskResumeAll()函数。</p> <p>在调度器挂起阶段内，FreeRTOS使用静态变量uxPendedTicks记录挂起期间,系统节拍中断的次数。当调用恢复调度器函数xTaskResumeAll()时，会执行uxPendedTicks次本函数(xTaskIncrementTick())。变量uxPendedTicks同样是在tasks.c中定义的。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>3.自动任务切换</h2> <p>函数的最后几行代码颇让人难以理解，其中局部变量xSwitchRequired是本函数的返回值，在文章开始也说过：“如果该函数返回值为真，说明处于就绪态任务的优先级高于当前运行任务的优先级，则会触发一次PendSV中断，进行上下文切换”，现在如果变量xYieldPending为真，则返回值也会为真，函数结束后会进行上下文切换。这个变量xYieldPending的作用是什么？又是在什么时候被赋值为真呢？还真要从头说起。</p> <div class="ay1code"> <pre class="brush:cpp;">if( xYieldPending != pdFALSE )  {      xSwitchRequired = pdTRUE;  }</pre> </div> <p>带中断保护的API函数，都会有一个参数pxHigherPriorityTaskWoken。如果API函数导致一个任务解锁，并且解锁的任务优先级高于当前运行的任务，则API函数将*pxHigherPriorityTaskWoken设置成pdTRUE。在中断退出前，老版本的FreeRTOS需要手动触发一次任务切换。比如在<a href="//www.jb51.net/article/243694.htm"  target="_blank" rel="nofollow">FreeRTOS使用任务通知实现命令行解释器</a>一文中，我们在串口接收中断中调用了带中断保护的API函数vTaskNotifyGiveFromISR()，在函数执行完后，会使用代码portYIELD_FROM_ISR(xHigherPriorityTaskWoken)判断参数xHigherPriorityTaskWoken是否为真，为真则手动强制上下文切换。</p> <div class="ay1code"> <pre class="brush:cpp;">   BaseType_txHigherPriorityTaskWoken = pdFALSE;             /*收到一帧数据，向命令行解释器任务发送通知*/      vTaskNotifyGiveFromISR(xCmdAnalyzeHandle,&amp;xHigherPriorityTaskWoken);      /*是否需要强制上下文切换*/      portYIELD_FROM_ISR(xHigherPriorityTaskWoken );  </pre> </div> <p>从FreeRTOSV7.3.0起，pxHigherPriorityTaskWoken成为一个可选参数，并可以设置为NULL。如果将参数xHigherPriorityTaskWoken设置为NULL，并且带中断保护的API函数导致更高优先级任务解锁，任务什么时候、怎么切换呢？</p> <p>原来从FreeRTOSV7.3.0起，内核增加了一个静态变量xYieldPending，这个变量也是在tasks.c中定义的。如果将变量xYieldPending设置为pdTRUE，则会在下一次系统节拍中断服务函数中，触发一次任务切换，见本小节第一段代码描述。</p> <p>让我们看一下这个过程是如何实现的。</p> <p>对于队列以及使用队列机制的信号量、互斥量等，在中断服务程序中调用了这些API函数，将任务从阻塞中解除，则需要调用函数xTaskRemoveFromEventList()将任务的事件列表项从事件列表中移除。在移除事件列表项的过程中，会判断解除的任务优先级是否大于当前任务的优先级，如果解除的任务优先级更高，会将变量xYieldPending设置为pdTRUE。在下一次系统节拍中断服务函数中，触发一次任务切换。代码如下所示：</p> <div class="ay1code"> <pre class="brush:cpp;">  if(pxUnblockedTCB-&gt;uxPriority &gt; pxCurrentTCB-&gt;uxPriority)   {        /*任务具有更高的优先级，返回pdTRUE。告诉调用这个函数的任务，它需要强制切换上下文。*/        xReturn= pdTRUE;        /*带中断保护的API函数的都会有一个参数参数"xHigherPriorityTaskWoken"，如果用户没有使用这个参数，这里设置任务切换标志。在下个系统中断服务例程中，会检查xYieldPending的值，如果为pdTRUE则会触发一次上下文切换。*/        xYieldPending= pdTRUE;   }        </pre> </div> <p>对于FreeRTOSV8.2.0新推出的任务通知，也提供了带中断保护版本的API函数。按照逻辑推断，这些API函数的参数xHigherPriorityTaskWoken也可以不使用，变量xYieldPending也应该作用于这些API函数。但事实是，在FreeRTOSV9.0之前的版本，FreeRTOS都没有实现这个功能，如果使用这些API函数解除了一个更高优先级任务，必须手动的进行上下文切换。这可能是一个BUG，因为在FreeRTOS V9.0版本中，已经修复了这个问题，可以使用变量xYieldPending自动切换上下文。这个BUG由QQ昵称为“所长”的网友遇到。</p> <p>在V9.0以及以上版本中，如果在中断中释放的通知引起更高优先级的任务解锁，API函数会判断参数xHigherPriorityTaskWoken是否有效，有效则将*xHigherPriorityTaskWoken设置为pdTRUE，此时需要手动切换上下文；否则，将变量xYieldPending设置为pdTRUE，在下一次系统节拍中断服务函数中，触发一次任务切换。代码如下所示：</p> <div class="ay1code"> <pre class="brush:cpp;">if( pxTCB-&gt;uxPriority &gt;pxCurrentTCB-&gt;uxPriority )   {            /*如果解除阻塞的任务优先级大于当前任务优先级,则设置上下文切换标识,等退出函数后手动切换上下文,或者在系统节拍中断服务程序中自动切换上下文*/            if(pxHigherPriorityTaskWoken != NULL )            {                      *pxHigherPriorityTaskWoken= pdTRUE;    /* 设置手动切换标志*/            }            else            {                      xYieldPending= pdTRUE;                 /* 设置自动切换标志*/            }   }</pre> </div> <p>函数xTaskIncrementTick()完整代码如下所示，根据上面的讲解以及代码的注释，理解这些代码应该不是难事。</p> <div class="ay1code"> <pre class="brush:cpp;">BaseType_t xTaskIncrementTick( void )  {  TCB_t * pxTCB;  TickType_t xItemValue;  BaseType_t xSwitchRequired = pdFALSE;      /* 每当系统节拍定时器中断发生,移植层都会调用该函数.函数将系统节拍中断计数器加1,         然后检查新的系统节拍中断计数器值是否解除某个任务.*/      if(uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )      {   /* 调度器正常情况 */          const TickType_txConstTickCount = xTickCount + 1;          /* 系统节拍中断计数器加1,如果计数器溢出(为0),交换延时列表指针和溢出延时列表指针 */          xTickCount = xConstTickCount;          if( xConstTickCount == ( TickType_t ) 0U )          {              taskSWITCH_DELAYED_LISTS();          }          /* 查看是否有延时任务到期.任务按照唤醒时间的先后顺序存储在队列中,这意味着只要队列中的最先唤醒任务没有到期,其它任务一定没有到期.*/          if( xConstTickCount &gt;=xNextTaskUnblockTime )          {              for( ;; )              {                  if( listLIST_IS_EMPTY( pxDelayedTaskList) != pdFALSE )                  {                      /* 如果延时列表为空,设置xNextTaskUnblockTime为最大值 */                     xNextTaskUnblockTime = portMAX_DELAY;                      break;                  }                  else                  {                      /* 如果延时列表不为空,获取延时列表第一个列表项值,这个列表项值存储任务唤醒时间.                         唤醒时间到期,延时列表中的第一个列表项所属的任务要被移除阻塞状态 */                      pxTCB = ( TCB_t * )listGET_OWNER_OF_HEAD_ENTRY( pxDelayedTaskList );                      xItemValue =listGET_LIST_ITEM_VALUE( &amp;( pxTCB-&gt;xStateListItem ) );                      if( xConstTickCount &lt; xItemValue )                      {                          /* 任务还未到解除阻塞时间?将当前任务唤醒时间设置为下次解除阻塞时间. */                         xNextTaskUnblockTime = xItemValue;                          break;                      }                      /* 从阻塞列表中删除到期任务 */                      ( void ) uxListRemove( &amp;( pxTCB-&gt;xStateListItem ) );                      /* 是因为等待事件而阻塞?是的话将到期任务从事件列表中删除 */                      if(listLIST_ITEM_CONTAINER( &amp;( pxTCB-&gt;xEventListItem ) ) != NULL )                      {                          ( void ) uxListRemove( &amp;( pxTCB-&gt;xEventListItem ) );                      }                      /* 将解除阻塞的任务放入就绪列表 */                     prvAddTaskToReadyList( pxTCB );                         #if (  configUSE_PREEMPTION == 1 )                      {                          /* 使能了抢占式内核.如果解除阻塞的任务优先级大于当前任务,触发一次上下文切换标志 */                          if( pxTCB-&gt;uxPriority &gt;= pxCurrentTCB-&gt;uxPriority )                          {                              xSwitchRequired= pdTRUE;                          }                      }                      #endif /*configUSE_PREEMPTION */                  }              }          }          /* 如果有其它任务与当前任务共享一个优先级,则这些任务共享处理器(时间片) */          #if ( (configUSE_PREEMPTION == 1 ) &amp;&amp; ( configUSE_TIME_SLICING == 1 ) )          {              if(listCURRENT_LIST_LENGTH( &amp;( pxReadyTasksLists[ pxCurrentTCB-&gt;uxPriority ] ) ) &gt; ( UBaseType_t ) 1 )              {                  xSwitchRequired = pdTRUE;              }              else              {                 mtCOVERAGE_TEST_MARKER();              }          }          #endif /* ( (configUSE_PREEMPTION == 1 ) &amp;&amp; ( configUSE_TIME_SLICING == 1 ) ) */          #if (configUSE_TICK_HOOK == 1 )          {              /* 调用时间片钩子函数*/              if( uxPendedTicks == ( UBaseType_t ) 0U )              {                  vApplicationTickHook();              }          }          #endif /*configUSE_TICK_HOOK */      }      else      {   /* 调度器挂起状态,变量uxPendedTicks用于统计调度器挂起期间,系统节拍中断次数.             当调用恢复调度器函数时,会执行uxPendedTicks次本函数(xTaskIncrementTick()):             恢复系统节拍中断计数器,如果有任务阻塞到期,则删除阻塞状态 */          ++uxPendedTicks;             /* 调用时间片钩子函数*/          #if (configUSE_TICK_HOOK == 1 )          {              vApplicationTickHook();          }          #endif      }      #if (configUSE_PREEMPTION == 1 )      {   /* 如果在中断中调用的API函数唤醒了更高优先级的任务,并且API函数的参数pxHigherPriorityTaskWoken为NULL时,变量xYieldPending用于上下文切换标志 */          if( xYieldPending!= pdFALSE )          {              xSwitchRequired = pdTRUE;          }      }      #endif /*configUSE_PREEMPTION */      return xSwitchRequired;  }</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-59668.htm">猫咪领养协议书违约金（领养猫咪签协议）</a></p>
+                                        <p>下一个：<a href="/news/article-60241.htm">动物接种疫苗的简报怎么写好一点（动物接种疫苗的简报怎么写好一点呢）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-27441.htm" title="promise和async/await区别">promise和async/await区别</a></li>
+                        <li class="py-2"><a href="/news/article-40387.htm" title="我被猫咬了,没去***,会不会死人（被猫咬伤了没打疫苗要紧吗）">我被猫咬了,没去***,会不会死人（被猫咬伤了没打疫苗要紧吗）</a></li>
+                        <li class="py-2"><a href="/news/article-39387.htm" title="劳动节福利~ 我给大家写了个博客园快速发文工具_在线工具">劳动节福利~ 我给大家写了个博客园快速发文工具_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-55698.htm" title="宠物用品比较好的牌子（宠物用品排名榜）">宠物用品比较好的牌子（宠物用品排名榜）</a></li>
+                        <li class="py-2"><a href="/news/article-28836.htm" title="小型宠物粮食加工设备价格表 小型宠物粮食加工设备价格表图片">小型宠物粮食加工设备价格表 小型宠物粮食加工设备价格表图片</a></li>
+                        <li class="py-2"><a href="/news/article-44857.htm" title="塞尔达海拉鲁大陆海啸（塞尔达海拉鲁大森林路线）">塞尔达海拉鲁大陆海啸（塞尔达海拉鲁大森林路线）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-sing-box-github.htm" title="11月14日 | SingBox每天更新19.4M/S免费节点订阅链接">11月14日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43368.htm" title="动物疫苗品牌排行榜最新 动物疫苗品牌排行榜最新名单">动物疫苗品牌排行榜最新 动物疫苗品牌排行榜最新名单</a></li>
+                        <li class="py-2"><a href="/news/article-42368.htm" title="动物疫苗市场占有率多少合适（2021动物疫苗行业前景）">动物疫苗市场占有率多少合适（2021动物疫苗行业前景）</a></li>
+                        <li class="py-2"><a href="/news/article-23276.htm" title="猫最忌讳的三个属相（有些人命里不能养猫）">猫最忌讳的三个属相（有些人命里不能养猫）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

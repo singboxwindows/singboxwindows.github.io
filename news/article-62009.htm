@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-62009.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中watch监听，ajax异步问题解决</title>
+        <meta name="description" content="getResult(){ 	//组装requestParam1和requestParam2参数  	let requestParam1 = {} 	let requestParam2 = {} 	re" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-62009.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="vue中watch监听，ajax异步问题解决" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/8385911316e65f18f95610af44d653f1.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:15:03" />
+    <meta property="og:updated_time" content="2025-02-24T09:15:03" />
+        <meta property="og:description" content="getResult(){ 	//组装requestParam1和requestParam2参数  	let requestParam1 = {} 	let requestParam2 = {} 	re" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue中watch监听，ajax异步问题解决">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="/">
+                        <span>SingBox Windows</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/client.htm">客户端</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">vue中watch监听，ajax异步问题解决</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <pre><code class="prism language-javascript"><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token comment">//组装requestParam1和requestParam2参数 </span> 	<span class="token keyword">let</span> requestParam1 <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> 	<span class="token keyword">let</span> requestParam2 <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> 	requestParam1<span class="token punctuation">.</span>screen <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>screenData<span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>dimension <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>dimensionData<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>measure <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>measureData<span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>formInline <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>formInline <span class="token operator">||</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>tableSel <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tableSel<span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>chartType <span class="token operator">=</span> <span class="token string">"scatter"</span><span class="token punctuation">;</span> 	 	requestParam2<span class="token punctuation">.</span>screen <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>screenData<span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>dimension <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>dimensionData<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>measure <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>measureData<span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>formInline <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>formInline <span class="token operator">||</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>tableSel <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tableSel<span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>chartType <span class="token operator">=</span> <span class="token string">"scatter"</span><span class="token punctuation">;</span> 	 	<span class="token comment">//调方法</span> 	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getChartDataLater</span><span class="token punctuation">(</span>requestParam1<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getChartDataLater</span><span class="token punctuation">(</span>requestParam2<span class="token punctuation">)</span><span class="token punctuation">;</span>  	<span class="token comment">//得到返回的this.results</span> 	<span class="token keyword">let</span> _options <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>chartOptions<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token keyword">let</span> _temp_options <span class="token operator">=</span> <span class="token function">scatterRender</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>dimensionData<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>measureData<span class="token punctuation">,</span> _options<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token keyword">if</span><span class="token punctuation">(</span>_temp_options<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		<span class="token keyword">this</span><span class="token punctuation">.</span>chartOptions <span class="token operator">=</span> _temp_options<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token function">getChartDataLater</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">getChartData</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">this</span><span class="token punctuation">.</span>results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span> 		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <ul> <li>上面的这种写法可能会出现，<strong>getChartDataLater</strong>方法还没执行完成，this.results这个数组还没有push两次（可能<strong>ajax</strong>异步导致），就执行了下面得到_options的代码，这时候参数中<strong>this.results</strong>还只是个空数组</li> </ul> <hr/> </h1> <pre><code class="prism language-javascript"><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	<span class="token comment">//组装requestParam1和requestParam2参数 </span> 	<span class="token keyword">let</span> requestParam1 <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> 	<span class="token keyword">let</span> requestParam2 <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> 	requestParam1<span class="token punctuation">.</span>screen <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>screenData<span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>dimension <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>dimensionData<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>measure <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>measureData<span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>formInline <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>formInline <span class="token operator">||</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>tableSel <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tableSel<span class="token punctuation">;</span> 	requestParam1<span class="token punctuation">.</span>chartType <span class="token operator">=</span> <span class="token string">"scatter"</span><span class="token punctuation">;</span> 	 	requestParam2<span class="token punctuation">.</span>screen <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>screenData<span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>dimension <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">this</span><span class="token punctuation">.</span>dimensionData<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>measure <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>measureData<span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>formInline <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>formInline <span class="token operator">||</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>tableSel <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tableSel<span class="token punctuation">;</span> 	requestParam2<span class="token punctuation">.</span>chartType <span class="token operator">=</span> <span class="token string">"scatter"</span><span class="token punctuation">;</span> 	 	<span class="token comment">//调方法</span> 	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getChartDataLater</span><span class="token punctuation">(</span>requestParam1<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getChartDataLater</span><span class="token punctuation">(</span>requestParam2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>；  <span class="token function">getChartDataLater</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">getChartData</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">this</span><span class="token punctuation">.</span>results<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token comment">//定义一个 a_watch 初始值为0，每执行一次getChartData就自增1</span> 		<span class="token comment">//在watch中监听 a_watch 为2时，说明getChartData已经执行了两次，this.results数组组装完成</span> 		<span class="token keyword">this</span><span class="token punctuation">.</span>a_watch <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>a_watch <span class="token operator">+</span> <span class="token number">1</span> 	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=&gt;</span> <span class="token punctuation">{<!-- --></span> 		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token comment">//watch</span> watch <span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">a_watch</span><span class="token punctuation">(</span>newval<span class="token punctuation">,</span> oldVal<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newval<span class="token punctuation">,</span> oldVal<span class="token punctuation">)</span> 		<span class="token comment">//第一次getChartData执行完，newval=1，oldVal=0</span> 		<span class="token comment">//第二次getChartData执行完，newval=2，oldVal=1</span> 		<span class="token comment">//newval=2时，this.results已经组装完成</span> 		<span class="token keyword">if</span><span class="token punctuation">(</span>newval <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 			console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>results<span class="token punctuation">)</span> 			<span class="token keyword">let</span> _options <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>chartOptions<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 			<span class="token keyword">let</span> _temp_options <span class="token operator">=</span> <span class="token function">scatterRender</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>dimensionData<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>measureData<span class="token punctuation">,</span> _options<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span> 			<span class="token keyword">if</span><span class="token punctuation">(</span>_temp_options<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token keyword">this</span><span class="token punctuation">.</span>chartOptions <span class="token operator">=</span> _temp_options<span class="token punctuation">;</span> 			<span class="token punctuation">}</span> 		<span class="token punctuation">}</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <hr/> </h1> <h6> <a id="1watchdata_100" rel="nofollow"></a>1.watch监听data内数据的变化</h6> <pre><code class="prism language-javascript">data<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>  a<span class="token punctuation">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> watch<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>  <span class="token function">a</span><span class="token punctuation">(</span>newval<span class="token punctuation">,</span> oldVal<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>   <span class="token comment">// 做点什么。。。</span>   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newval<span class="token punctuation">,</span> oldVal<span class="token punctuation">)</span>  <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <h6> <a id="2watchdeep_true__113" rel="nofollow"></a>2.watch监听整个对象，deep: true 深度监测</h6> <pre><code class="prism language-javascript">data<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>  <span class="token keyword">return</span> <span class="token punctuation">{<!-- --></span>   msg<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>    name<span class="token punctuation">:</span> <span class="token string">'hahah'</span><span class="token punctuation">,</span>    color<span class="token punctuation">:</span> <span class="token string">'red'</span>   <span class="token punctuation">}</span>  <span class="token punctuation">}</span> <span class="token punctuation">}</span>  watch<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>  msg<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>   <span class="token function">handler</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>    <span class="token comment">// 做点什么。。。</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newValue<span class="token punctuation">)</span>  <span class="token punctuation">}</span><span class="token punctuation">,</span>  deep<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span> </code></pre> <h6> <a id="3watchcomputed_134" rel="nofollow"></a>3.watch监听对象内的某一具体属性，可以通过computed做中间层来实现</h6> <pre><code class="prism language-javascript">computed<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>  <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>   <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>msg<span class="token punctuation">.</span>name  <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> watch<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>  <span class="token function">name</span><span class="token punctuation">(</span>newValue<span class="token punctuation">,</span> oldValue<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>    <span class="token comment">// 做点什么。。。</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newval<span class="token punctuation">,</span> oldVal<span class="token punctuation">)</span>  <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61421.htm">动物医院需要几个执业兽医证书才能开 动物医院需要几个执业兽医证书才能开诊所</a></p>
+                                        <p>下一个：<a href="/news/article-62010.htm">猫三联需要两针还是三针打（猫三联需要两针还是三针打一针）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-47314.htm" title="深圳市宠物领养之家 深圳市宠物领养之家官网">深圳市宠物领养之家 深圳市宠物领养之家官网</a></li>
+                        <li class="py-2"><a href="/news/article-27442.htm" title="学宠物美容有前途吗男生（男的学宠物美容怎么样）">学宠物美容有前途吗男生（男的学宠物美容怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-node-share-links.htm" title="2月11日 | SingBox每天更新22.1M/S免费节点订阅链接">2月11日 | SingBox每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-node-subscribe-links.htm" title="11月9日 | SingBox每天更新20.9M/S免费节点订阅链接">11月9日 | SingBox每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-latest-sing-box-node.htm" title="11月23日 | SingBox每天更新18.9M/S免费节点订阅链接">11月23日 | SingBox每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe.htm" title="11月17日 | SingBox每天更新20.9M/S免费节点订阅链接">11月17日 | SingBox每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43886.htm" title="vue日期格式处理详解">vue日期格式处理详解</a></li>
+                        <li class="py-2"><a href="/news/article-50321.htm" title="一片枫叶的成语（枫叶用成语怎么说）">一片枫叶的成语（枫叶用成语怎么说）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-node-share.htm" title="2月10日 | SingBox每天更新20M/S免费节点订阅链接">2月10日 | SingBox每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-sing-box-node.htm" title="12月16日 | SingBox每天更新21.4M/S免费节点订阅链接">12月16日 | SingBox每天更新21.4M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

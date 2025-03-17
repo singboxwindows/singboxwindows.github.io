@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-75433.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板引擎Thymeleaf基本介绍和使用</title>
+        <meta name="description" content="一、序言 虽然目前大部分互联网项目都是基于先后端分离的思想开发，但也存在一些视图和后台代码还是在同个工程的。本文详细讲解SpringBoot视图框架Thymeleaf，一种基于Java语言实现的模板引" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-75433.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="模板引擎Thymeleaf基本介绍和使用" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/ff549c061c068e9e77d3c464088dddea.webp" />
+        <meta property="og:release_date" content="2025-03-17T09:39:12" />
+    <meta property="og:updated_time" content="2025-03-17T09:39:12" />
+        <meta property="og:description" content="一、序言 虽然目前大部分互联网项目都是基于先后端分离的思想开发，但也存在一些视图和后台代码还是在同个工程的。本文详细讲解SpringBoot视图框架Thymeleaf，一种基于Java语言实现的模板引" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="模板引擎Thymeleaf基本介绍和使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="/">
+                        <span>SingBox Windows</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/client.htm">客户端</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">模板引擎Thymeleaf基本介绍和使用</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3><a id="_0" rel="nofollow"></a>一、序言</h3> <p>虽然目前大部分互联网项目都是基于先后端分离的思想开发，但也存在一些视图和后台代码还是在同个工程的。本文详细讲解SpringBoot视图框架Thymeleaf，一种基于Java语言实现的模板引擎技术。</p> <h3><a id="_2" rel="nofollow"></a>二、常见标签</h3> <pre><code class="prism language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token attr-name"><span class="token namespace">xmlns:</span>th</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.thymeleaf.org<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span><span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span><span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>all<span class="token punctuation">"</span></span><span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../../css/gtvg.css<span class="token punctuation">"</span></span><span class="token attr-name"><span class="token namespace">th:</span>href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/css/gtvg.css}<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Title<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${hello}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Hello World!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre> <p>以上便是常见的Thymeleaf模板代码，<code>xmlns:th="http://www.thymeleaf.org"</code>表示引入模板引擎标签，<code>th:href</code>用于引入外联样式文件，<code>th:text</code>用于动态展示标签的文本内容。Thymeleaf提供了很多标签用于解析视图，大体如下：</p> <table> <thead> <tr> <th>标签</th> <th>注释</th> </tr> </thead> <tbody> <tr> <td>th:insert</td> <td>布局标签，引入具体的内容</td> </tr> <tr> <td>th:each</td> <td>遍历元素</td> </tr> <tr> <td>th:replace</td> <td>引入文件，类似include</td> </tr> <tr> <td>th:if</td> <td>条件判断，如果为真</td> </tr> <tr> <td>th:unless</td> <td>条件判断，如果为假</td> </tr> <tr> <td>th:switch</td> <td>条件判断，跟th:case配合使用</td> </tr> <tr> <td>th:value</td> <td>指定属性标签</td> </tr> <tr> <td>th:href</td> <td>设置超链接</td> </tr> <tr> <td>th:src</td> <td>引入外部资源文件</td> </tr> <tr> <td>th:text</td> <td>指定标签显示的内容</td> </tr> </tbody> </table> <h3><a id="_29" rel="nofollow"></a>三、标准表达式</h3> <h4><a id="31__30" rel="nofollow"></a>3.1 变量表达式${…}</h4> <p>主要用于显示上下文中的变量值，如果上下文中不存在指定内容，则显示默认的内容。</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${content}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>默认内容<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre> <p>Thymeleaf内置的对象：</p> <blockquote> <p>ctx、vars、locale：都是作用于上下文对象<br /> request：作用于HttpServletRequest对象<br /> response：作用于HttpServletResponse对象<br /> session：作用于HttpSession对象<br /> servletContext：作用于ServletContext对象</p> </blockquote> <h4><a id="32__42" rel="nofollow"></a>3.2 选择变量表达式*{…}</h4> <p>一般用于从被选定对象中获取属性，比如，从book对象中获取title属性可以这样子写：</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token attr-name"><span class="token namespace">th:</span>object</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>${book}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>titile:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token attr-name"><span class="token namespace">th:</span>text</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>*{title}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>标题<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre> <h4><a id="33__49" rel="nofollow"></a>3.3 消息表达式#{…}</h4> <p>用于国际化内容的动态展示和替换，但需要提供相应的国际化配置信息。SpringBoot默认识别的语言配置为resource下的message.properties，其他国际化语言遵从“文件前缀_语言代码_国家代码.properties”的形式实现，例如：</p> <pre><code class="prism language-xml">## login_en_US.properties login.tip=Please sign in login.username=Username login.password=Password login.rememberme=Remember me login.button=Login</code></pre> <p>编写配置文件：</p> <pre><code class="prism language-xml"># 国际化文件配置，包名+属性名 spring.messages.basename=com.keduw.login</code></pre> <h4><a id="34__64" rel="nofollow"></a>3.4 链接表达式@{…}</h4> <p>一般用于链接跳转，需要同时传递参数时，需要按照@{链接(参数名=参数值,参数名=参数值…)}的形式，参数值同时支持表达式传值。</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span><span class="token attr-name"><span class="token namespace">th:</span>href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@{/order/details(orderId=${o.id})}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>view<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span></code></pre> <h4><a id="35__69" rel="nofollow"></a>3.5 片段表达式~{…}</h4> <p>用来标记一个片段传递给其他模板使用，最常用的方式是使用<code>th:insert</code>或<code>th:replace</code>属性插入片段，比如：</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token attr-name"><span class="token namespace">th:</span>insert</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>~{commonDiv::header}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code></pre> <p>将commonDiv模板中的header代码片段添加到指定位置中，Thymeleaf会自动查找“/resources/templates”中的commonDiv模板，header为片段名称。</p> <h3><a id="_75" rel="nofollow"></a>四、基本使用</h3> <p>Thymeleaf的引入很简单，只需要导入相关依赖，添加指定配置信息即可。</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-thymeleaf<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span></code></pre> <pre><code class="prism language-xml">spring.thymeleaf.cache = true // 启动模板缓存 spring.thymeleaf.encoding = UTF-8 //模板编码 spring.thymeleaf.mode = HTML5 spring.thymeleaf.prefix = classpath:/templates/ //模板页面存放路径 spring.thymeleaf.suffix = .html //模板后缀</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-75432.htm">GCC降级</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-sing-box-node.htm" title="1月17日 | SingBox每天更新19.4M/S免费节点订阅链接">1月17日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-sing-box-node.htm" title="1月5日 | SingBox每天更新18.5M/S免费节点订阅链接">1月5日 | SingBox每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-57386.htm" title="动物疫苗的种类和制备原理是什么意思（动物疫苗制作流程）">动物疫苗的种类和制备原理是什么意思（动物疫苗制作流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-sing-box-node-github.htm" title="2月13日 | SingBox每天更新22.8M/S免费节点订阅链接">2月13日 | SingBox每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-latest-sing-box-node.htm" title="1月31日 | SingBox每天更新23M/S免费节点订阅链接">1月31日 | SingBox每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-62010.htm" title="猫三联需要两针还是三针打（猫三联需要两针还是三针打一针）">猫三联需要两针还是三针打（猫三联需要两针还是三针打一针）</a></li>
+                        <li class="py-2"><a href="/news/article-71436.htm" title="狗粮招聘业务（狗粮厂招聘业务员）">狗粮招聘业务（狗粮厂招聘业务员）</a></li>
+                        <li class="py-2"><a href="/news/article-59667.htm" title="网络协议之:socket协议详解之Unix domain Socket">网络协议之:socket协议详解之Unix domain Socket</a></li>
+                        <li class="py-2"><a href="/news/article-41380.htm" title="win11系统hosts文件无法保存怎么办">win11系统hosts文件无法保存怎么办</a></li>
+                        <li class="py-2"><a href="/news/article-35671.htm" title="猫咪疫苗要打几针才算完成（猫咪疫苗打几针疫苗时间间隔）">猫咪疫苗要打几针才算完成（猫咪疫苗打几针疫苗时间间隔）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

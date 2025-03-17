@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-74089.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript根据二维数组构建最大数组方法详解</title>
+        <meta name="description" content="假设我们有一个数字数组，如下所示： const&nbsp;arr&nbsp;=&nbsp;[ &nbsp;&nbsp;[1,&nbsp;16,&nbsp;34,&nbsp;48], &nbsp;&nb" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-74089.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="JavaScript根据二维数组构建最大数组方法详解" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/abb6b91f60d1692b85e4fbc5e4912b74.webp" />
+        <meta property="og:release_date" content="2025-03-15T07:19:03" />
+    <meta property="og:updated_time" content="2025-03-15T07:19:03" />
+        <meta property="og:description" content="假设我们有一个数字数组，如下所示： const&nbsp;arr&nbsp;=&nbsp;[ &nbsp;&nbsp;[1,&nbsp;16,&nbsp;34,&nbsp;48], &nbsp;&nb" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript根据二维数组构建最大数组方法详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="/">
+                        <span>SingBox Windows</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/client.htm">客户端</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">JavaScript根据二维数组构建最大数组方法详解</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>假设我们有一个数字数组，如下所示：</p> <pre>const&nbsp;arr&nbsp;=&nbsp;[ &nbsp;&nbsp;[1,&nbsp;16,&nbsp;34,&nbsp;48], &nbsp;&nbsp;[6,&nbsp;66,&nbsp;2,&nbsp;98], &nbsp;&nbsp;[43,&nbsp;8,&nbsp;65,&nbsp;43], &nbsp;&nbsp;[32,&nbsp;98,&nbsp;76,&nbsp;83], &nbsp;&nbsp;[65,&nbsp;89,&nbsp;32,&nbsp;4], ];</pre> <p>我们需要编写一个映射到该数组数组并返回一个包含每个子数组中最大（最大）元素的数组的函数。</p> <p>因此，对于上述数组，输出应为-</p> <pre>const&nbsp;output&nbsp;=&nbsp;[ &nbsp;&nbsp;&nbsp;48, &nbsp;&nbsp;&nbsp;98, &nbsp;&nbsp;&nbsp;65, &nbsp;&nbsp;&nbsp;83, &nbsp;&nbsp;&nbsp;89 ];</pre> <h2>示例</h2> <p>以下是从每个子数组中获取最大元素的代码-</p> <pre>const&nbsp;arr&nbsp;=&nbsp;[ &nbsp;&nbsp;&nbsp;[1,&nbsp;16,&nbsp;34,&nbsp;48], &nbsp;&nbsp;&nbsp;[6,&nbsp;66,&nbsp;2,&nbsp;98], &nbsp;&nbsp;&nbsp;[43,&nbsp;8,&nbsp;65,&nbsp;43], &nbsp;&nbsp;&nbsp;[32,&nbsp;98,&nbsp;76,&nbsp;83], &nbsp;&nbsp;&nbsp;[65,&nbsp;89,&nbsp;32,&nbsp;4], ]; const&nbsp;constructBig&nbsp;=&nbsp;arr&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;return&nbsp;arr.map(sub&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;max&nbsp;=&nbsp;Math.max(...sub); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;max; &nbsp;&nbsp;&nbsp;}); }; console.log(constructBig(arr));</pre> <p>输出结果</p> <p>这将在控制台中产生以下输出-</p> <pre>[&nbsp;48,&nbsp;98,&nbsp;65,&nbsp;98,&nbsp;89&nbsp;]</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73422.htm">常用动物疫苗有哪些品牌（动物疫苗有哪几种）</a></p>
+                                        <p>下一个：<a href="/news/article-74090.htm">宠物狗疫苗自己家可以打吗安全吗（狗疫苗自己在家能打吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-73421.htm" title="猫瘟针多少钱（猫瘟打什么针剂）">猫瘟针多少钱（猫瘟打什么针剂）</a></li>
+                        <li class="py-2"><a href="/news/article-49819.htm" title="重庆宠物领养平台有哪些公司可以注册的（重庆宠物狗领养）">重庆宠物领养平台有哪些公司可以注册的（重庆宠物狗领养）</a></li>
+                        <li class="py-2"><a href="/news/article-43368.htm" title="动物疫苗品牌排行榜最新 动物疫苗品牌排行榜最新名单">动物疫苗品牌排行榜最新 动物疫苗品牌排行榜最新名单</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-node-subscribe-links.htm" title="1月13日 | SingBox每天更新21.4M/S免费节点订阅链接">1月13日 | SingBox每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-sing-box-github.htm" title="1月28日 | SingBox每天更新22.4M/S免费节点订阅链接">1月28日 | SingBox每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-sing-box-node.htm" title="1月17日 | SingBox每天更新19.4M/S免费节点订阅链接">1月17日 | SingBox每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36024.htm" title="QCustomPlot开发笔记：QCustomPlot简介、下载以及基础绘图_在线工具">QCustomPlot开发笔记：QCustomPlot简介、下载以及基础绘图_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-sing-box-github.htm" title="3月13日 | SingBox每天更新18.4M/S免费节点订阅链接">3月13日 | SingBox每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35671.htm" title="猫咪疫苗要打几针才算完成（猫咪疫苗打几针疫苗时间间隔）">猫咪疫苗要打几针才算完成（猫咪疫苗打几针疫苗时间间隔）</a></li>
+                        <li class="py-2"><a href="/news/article-48823.htm" title="领养边牧会对新主人忠心吗（领养边牧犬）">领养边牧会对新主人忠心吗（领养边牧犬）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

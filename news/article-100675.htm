@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-100675.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>C#中的委托和事件_C#教程</title>
+        <meta name="description" content="一、定义委托  delegate void StudentDelegate();//【1】定义一个委托  二、定义一个调用和定义事件的类      /// &lt;summary&gt;      /" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-100675.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="C#中的委托和事件_C#教程" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/7baab1e4dbc29424575eab154db0aaf4.webp" />
+        <meta property="og:release_date" content="2025-04-21T06:50:11" />
+    <meta property="og:updated_time" content="2025-04-21T06:50:11" />
+        <meta property="og:description" content="一、定义委托  delegate void StudentDelegate();//【1】定义一个委托  二、定义一个调用和定义事件的类      /// &lt;summary&gt;      /" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C#中的委托和事件_C#教程">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="/">
+                        <span>SingBox Windows</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/client.htm">客户端</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">C#中的委托和事件_C#教程</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<h2>一、定义委托</h2> <div class="ay1code"> <pre class="brush:csharp;">delegate void StudentDelegate();//【1】定义一个委托</pre> </div> <h2>二、定义一个调用和定义事件的类</h2> <div class="ay1code"> <pre class="brush:csharp;">    /// &lt;summary&gt;      ///定义事件和调用 事件一定要放在一个类里面      /// &lt;/summary&gt;      class InvokeDefine //【2】定义一个调用和定义事件的类      {          public event StudentDelegate StudentEvent;          public void Invoke()          {              StudentEvent?.Invoke();//?.Null检查运算符          }      }</pre> </div> <h2>三、订阅者</h2> <div class="ay1code"> <pre class="brush:csharp;">    class EventFunction //【3】订阅者      {          public void Student1()          {              Console.WriteLine("我是订阅者1");          }          public void Student2()          {              Console.WriteLine("我是定订阅者2");          }      }</pre> </div> <h2>四、订阅事件</h2> <div class="ay1code"> <pre class="brush:csharp;">        static void Main(string[] args)          {              EventFunction eventFunction = new EventFunction();              InvokeDefine invokeDefine = new InvokeDefine();              invokeDefine.StudentEvent += eventFunction.Student1;//【4】订阅事件              invokeDefine.StudentEvent += eventFunction.Student2;              invokeDefine.Invoke();                            Console.ReadKey();          }</pre> </div> <h2>五、总结</h2> <p>第一点：在定义事件类的外部，他是不能使用=号来操作，只能用+=。<br />第二点：在定义事件类的外部不能调用 事件。<br />第三点：事件就是在委托的前面增加一个event关键字。</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-100674.htm">Java 9中Collectors.filtering()方法的重要性</a></p>
+                                        <p>下一个：<a href="/news/article-101302.htm">属相养猫（什么属相养猫对财运好）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-78855.htm" title="动物疫苗的使用方法及注意事项视频教程大全 动物疫苗的使用方法及注意事项视频教程大全图片">动物疫苗的使用方法及注意事项视频教程大全 动物疫苗的使用方法及注意事项视频教程大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-70130.htm" title="宠物猫要多少钱（宠物猫托运大概要多少钱）">宠物猫要多少钱（宠物猫托运大概要多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-sing-box-github.htm" title="3月13日 | SingBox每天更新18.4M/S免费节点订阅链接">3月13日 | SingBox每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-93885.htm" title="被猫爪子勾了一下出了一点血会死吗会感染吗（被猫爪子勾了一下出了一点血需要打疫苗吗）">被猫爪子勾了一下出了一点血会死吗会感染吗（被猫爪子勾了一下出了一点血需要打疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-77482.htm" title="动物疫苗接种时间表图片大全高清 动物疫苗接种时间表图片大全高清版">动物疫苗接种时间表图片大全高清 动物疫苗接种时间表图片大全高清版</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-14-sing-box-github.htm" title="4月14日 | SingBox每天更新19.2M/S免费节点订阅链接">4月14日 | SingBox每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-72097.htm" title="动物接种疫苗后产生的免疫称为什么 动物接种疫苗后产生的免疫称为什么">动物接种疫苗后产生的免疫称为什么 动物接种疫苗后产生的免疫称为什么</a></li>
+                        <li class="py-2"><a href="/news/article-72767.htm" title="动物疫苗接种途径有哪些种类 动物疫苗接种途径有哪些种类的">动物疫苗接种途径有哪些种类 动物疫苗接种途径有哪些种类的</a></li>
+                        <li class="py-2"><a href="/news/article-98416.htm" title="动物疫苗业务员能挣多少 动物疫苗业务员能挣多少钱一个月">动物疫苗业务员能挣多少 动物疫苗业务员能挣多少钱一个月</a></li>
+                        <li class="py-2"><a href="/news/article-74759.htm" title="宠物领养平台app小程序下载苹果手机（宠物领养软件下载）">宠物领养平台app小程序下载苹果手机（宠物领养软件下载）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

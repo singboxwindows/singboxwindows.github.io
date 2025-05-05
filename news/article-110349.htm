@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://singboxwindows.github.io/news/article-110349.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ONVIF开发（2）vs2013编译openssl库</title>
+        <meta name="description" content="ONVIF开发（2）vs2013编译openssl库 作者最近在windows下基于gsoap开发一个onvif客户端，winsows平台下gsoap鉴权一般采用自带的鉴权函数，但必须调用openss" />
+        <link rel="icon" href="/assets/website/img/singboxwindows/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SingBox Windows免费节点订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://singboxwindows.github.io/news/article-110349.htm" />
+    <meta property="og:site_name" content="SingBox Windows免费节点订阅站" />
+    <meta property="og:title" content="ONVIF开发（2）vs2013编译openssl库" />
+    <meta property="og:image" content="https://singboxwindows.github.io/uploads/20240731/934b8694d0be5a15b83bef7c853f21dc.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:28:11" />
+    <meta property="og:updated_time" content="2025-05-03T10:28:11" />
+        <meta property="og:description" content="ONVIF开发（2）vs2013编译openssl库 作者最近在windows下基于gsoap开发一个onvif客户端，winsows平台下gsoap鉴权一般采用自带的鉴权函数，但必须调用openss" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ONVIF开发（2）vs2013编译openssl库">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="/assets/website/css/singboxwindows/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B99XD3HGG8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B99XD3HGG8');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <nav class="navbar navbar-expand-lg fixed-top py-3 navbar-light" id="mainNav">
+        <div class="container"> 
+            <a class="navbar-brand" href="/">
+                        <span>SingBox Windows</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item"> <a class="nav-link" href="/">首页</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/free-nodes/">免费节点</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/paid-subscribe/">推荐机场</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/client.htm">客户端</a> </li>
+                                        <li class="nav-item"> <a class="nav-link" href="/news/">新闻资讯</a> </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main">
+        <div class="contact_header jumbotron text-center">
+            <h1 class="display-4">ONVIF开发（2）vs2013编译openssl库</h1>
+            <p>
+                <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / <span>正文</span>
+            </p>
+        </div>
+        <section class="bg-image-2 position-relative"> <img src="/assets/website/img/singboxwindows/mix-icons.png" alt="" class="bg-img-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2>ONVIF开发（2）vs2013编译openssl库</h2> <p>作者最近在windows下基于gsoap开发一个onvif客户端，winsows平台下gsoap鉴权一般采用自带的鉴权函数，但必须调用openssl库，下面将详细介绍如何在windows平台下利用vs2013编译openssl库：<br /> 1、下载openssl源码，作者下载的版本是openssl-1.0.1e，1.0及以上版本可能会失败，原因是部分编译指令不支持。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221105/5015856667b5f4e530726be27b2c7ab0.jpg" alt="ONVIF开发（2）vs2013编译openssl库"><br /> 2、解压openssl-1.0.1e.tar.gz到S盘（作者解压到的目录）<br /> 3、下载Perl，根据系统提示安装即可，安装成功后添加环境变量，在系统变量Path一栏添加 C:\Perl64\bin;（C:\Perl64\ 为作者的安装目录），重启系统<br /> 4、新建目录 S:\openssl_lib\x86 存放编译后的库文件<br /> 5、打开2013控制台：开始-所有程序—Microsoft visual studio2013——Visual Studio Tools——<br /> 6、VS2013 x86 本机工具命令提示<br /> 7、执行<code>cd /d S:/openssl-1.0.1e</code>（进入openssl-1.0.1e解压目录，此处因为是从C盘跨越到S盘，所以加上/d）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221105/51f619bf1e5bdc4b74ffd68a81b0011c.jpg" alt="ONVIF开发（2）vs2013编译openssl库"><br /> 8、执行<code>perl Configure VC-WIN32 no-asm --prefix=S:\openssl_lib\x86</code> （存放编译后的库文件目录）<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221105/0b85566795906638ce36000f8c3f230c.jpg" alt="ONVIF开发（2）vs2013编译openssl库"><br /> 9、执行<code>ms\do_ms</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221105/ad8b7c6a46f1385a73c7c1ef54c988cb.jpg" alt="ONVIF开发（2）vs2013编译openssl库"><br /> 10、执行指令<code>nmake -f ms\ntdll.mak</code>（编译动态库，大约几分钟，耐心等待…）<br /> 11、执行指令<code>nmake -f ms\nt.mak</code> （编译静态库）</p> <p>装载openssl到指定的目录S:\opensll_lib\x86中<br /> 12、执行指令<code>nmake -f ms\ntdll.mak install</code><br /> 13、执行指令<code>nmake -f ms\nt.mak install</code></p> <p>编译结束，库目录包含bin、include、lib、ssl 四个文件夹</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109501.htm">动物疫苗行业的现状及未来的发展 动物疫苗行业的现状及未来的发展趋势</a></p>
+                                        <p>下一个：<a href="/news/article-110354.htm">关于BenchMark/c++11计时器/Chrome:tracing 的一些笔记_在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-88777.htm" title="vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_">vue路由跳转router-link清除历史记录的三种方式(总结)_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-94733.htm" title="天照爱宠动物医院杜坤（北京天照爱宠动物医院怎么样）">天照爱宠动物医院杜坤（北京天照爱宠动物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-1-node-share.htm" title="5月1日 | SingBox每天更新20.5M/S免费节点订阅链接">5月1日 | SingBox每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-108653.htm" title="合肥猫咪领养 合肥猫咪领养微信群">合肥猫咪领养 合肥猫咪领养微信群</a></li>
+                        <li class="py-2"><a href="/news/article-111179.htm" title="领养宠物狗需要钱吗（领养宠物狗需要钱吗现在）">领养宠物狗需要钱吗（领养宠物狗需要钱吗现在）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-sing-box-node-share.htm" title="4月26日 | SingBox每天更新22.1M/S免费节点订阅链接">4月26日 | SingBox每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-105309.htm" title="动物医院诊室的岗位职责有哪些（动物医院诊室的岗位职责有哪些呢）">动物医院诊室的岗位职责有哪些（动物医院诊室的岗位职责有哪些呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-2-sing-box-node-share.htm" title="5月2日 | SingBox每天更新18.9M/S免费节点订阅链接">5月2日 | SingBox每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-88046.htm" title="【南京宠物狗领养】 南京宠物狗领养中心">【南京宠物狗领养】 南京宠物狗领养中心</a></li>
+                        <li class="py-2"><a href="/news/article-101303.htm" title="2021年国考人数统计汇总（2021年国考人数统计汇总图）">2021年国考人数统计汇总（2021年国考人数统计汇总图）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+                <footer class="pt-4 pb-5 bg-light position-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">SingBox Windows免费节点订阅站</a> 版权所有 Powered by WordPress
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </footer>
+        <script src="/assets/website/js/frontend/singboxwindows/jquery-3.5.1.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="/assets/website/js/frontend/singboxwindows/app.js"></script>
+        <script src="/assets/website/js/frontend/G.js"></script>
+    </main>
+</body>
+
+</html>

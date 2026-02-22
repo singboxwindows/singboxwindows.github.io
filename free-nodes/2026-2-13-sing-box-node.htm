@@ -199,6 +199,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 可以与 Shadowsocks 等客户端同时使用吗？</h5></div>
+    <div class="panel-body">
+        可以。Nekobox 配置独立，与 Shadowsocks、Clash 等客户端互不干扰。用户可根据需要通过策略组选择节点，实现灵活的网络管理和分流策略。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 显示证书错误，如何修复？</h5></div>
+    <div class="panel-body">
+        证书错误通常由域名与证书不匹配或证书链不完整引起。请检查服务器证书是否为有效域名签发并包含完整链，如果使用 Let's Encrypt，请确保证书未过期并已正确安装到反向代理或服务端。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 的节点导入是否支持批量 URL？</h5></div>
     <div class="panel-body">
         支持。Nekoray 可通过订阅 URL 批量导入节点，并定期更新。用户无需手动添加每个节点，保证节点列表始终最新，提高使用效率和便利性。<hr />    </div>
@@ -207,6 +217,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-heading"><h5>Nekoray 节点订阅自动更新如何实现？</h5></div>
     <div class="panel-body">
         用户添加订阅 URL 后，Nekoray 会定期下载最新节点列表并替换旧节点。保持节点列表最新可减少手动维护，保证节点可用性和网络连接稳定性，提升使用体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 的规则订阅更新机制是怎样的？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持远程规则订阅 URL，可自动下载并更新节点和分流规则。用户可设置更新频率，如每天或每小时，确保规则和节点始终保持最新状态，提高网络管理效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 使用哪种加密算法？</h5></div>
+    <div class="panel-body">
+        Hysteria2 默认使用 AEAD 加密算法（如 ChaCha20-Poly1305），并可结合 TLS 层加密保障安全性。其设计兼顾速度与抗干扰能力，适合高延迟跨境网络环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的多策略组设置能提高访问效率吗？</h5></div>
@@ -219,34 +239,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Hysteria2 使用基于 QUIC 的高性能传输协议，可显著降低延迟并提升抗干扰能力。它特别适合高丢包或高延迟网络环境，提供流畅的浏览和视频播放体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 可以与 Shadowsocks 等客户端同时使用吗？</h5></div>
-    <div class="panel-body">
-        可以。Nekobox 配置独立，与 Shadowsocks、Clash 等客户端互不干扰。用户可根据需要通过策略组选择节点，实现灵活的网络管理和分流策略。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 显示证书错误，如何修复？</h5></div>
-    <div class="panel-body">
-        证书错误通常由域名与证书不匹配或证书链不完整引起。请检查服务器证书是否为有效域名签发并包含完整链，如果使用 Let's Encrypt，请确保证书未过期并已正确安装到反向代理或服务端。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 的节点自动测速功能如何配置？</h5></div>
-    <div class="panel-body">
-        Matsuri 可以设置测速周期和节点列表，程序会自动测试延迟和速度并排序。用户可根据测试结果选择最佳节点，提高网络访问速度和使用体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 的规则订阅更新机制是怎样的？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持远程规则订阅 URL，可自动下载并更新节点和分流规则。用户可设置更新频率，如每天或每小时，确保规则和节点始终保持最新状态，提高网络管理效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
     <div class="panel-body">
         支持。Matsuri 会自动测试节点延迟并按结果排序。用户可快速选择延迟最低或速度最快的节点，提高网络访问速度，尤其适合游戏或视频场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 使用哪种加密算法？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 的节点自动测速功能如何配置？</h5></div>
     <div class="panel-body">
-        Hysteria2 默认使用 AEAD 加密算法（如 ChaCha20-Poly1305），并可结合 TLS 层加密保障安全性。其设计兼顾速度与抗干扰能力，适合高延迟跨境网络环境。    </div>
+        Matsuri 可以设置测速周期和节点列表，程序会自动测试延迟和速度并排序。用户可根据测试结果选择最佳节点，提高网络访问速度和使用体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -275,16 +275,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-2-6-free-high-speed-nodes.htm" title="2月6日 | SingBox每天更新19.8M/S免费节点订阅链接">2月6日 | SingBox每天更新19.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-10-sing-box-github.htm" title="2月10日 | SingBox每天更新22.2M/S免费节点订阅链接">2月10日 | SingBox每天更新22.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-23-sing-box-node-share.htm" title="1月23日 | SingBox每天更新19.3M/S免费节点订阅链接">1月23日 | SingBox每天更新19.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-24-free-node-subscribe-links.htm" title="1月24日 | SingBox每天更新22M/S免费节点订阅链接">1月24日 | SingBox每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-15-today-sing-box-node.htm" title="1月15日 | SingBox每天更新18.3M/S免费节点订阅链接">1月15日 | SingBox每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-16-latest-sing-box-node.htm" title="2月16日 | SingBox每天更新20M/S免费节点订阅链接">2月16日 | SingBox每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-26-free-node-subscribe-links.htm" title="1月26日 | SingBox每天更新18.3M/S免费节点订阅链接">1月26日 | SingBox每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-20-free-node-subscribe-links.htm" title="2月20日 | SingBox每天更新22.8M/S免费节点订阅链接">2月20日 | SingBox每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-21-sing-box-node-windows.htm" title="2月21日 | SingBox每天更新22.5M/S免费节点订阅链接">2月21日 | SingBox每天更新22.5M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-2-13-sing-box-node.htm" title="2月13日 | SingBox每天更新21.7M/S免费节点订阅链接">2月13日 | SingBox每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-21-free-node-subscribe.htm" title="1月21日 | SingBox每天更新19.2M/S免费节点订阅链接">1月21日 | SingBox每天更新19.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-14-node-share-links.htm" title="1月14日 | SingBox每天更新20.2M/S免费节点订阅链接">1月14日 | SingBox每天更新20.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-17-free-sing-box-node.htm" title="2月17日 | SingBox每天更新20.4M/S免费节点订阅链接">2月17日 | SingBox每天更新20.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-22-free-node-subscribe.htm" title="2月22日 | SingBox每天更新19M/S免费节点订阅链接">2月22日 | SingBox每天更新19M/S免费节点订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-2-2-node-share.htm" title="2月2日 | SingBox每天更新19.7M/S免费节点订阅链接">2月2日 | SingBox每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-9-free-subscribe-node.htm" title="2月9日 | SingBox每天更新21M/S免费节点订阅链接">2月9日 | SingBox每天更新21M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-28-node-share-links.htm" title="1月28日 | SingBox每天更新18.5M/S免费节点订阅链接">1月28日 | SingBox每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-8-free-subscribe-node.htm" title="2月8日 | SingBox每天更新20.7M/S免费节点订阅链接">2月8日 | SingBox每天更新20.7M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -296,7 +296,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>

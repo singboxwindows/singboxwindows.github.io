@@ -1,4 +1,4 @@
-# 5月27日 | SingBox每天更新18.9M/S免费节点订阅链接  更新时间 2026-05-27 10:24:40
+# 6月3日 | SingBox每天更新21.6M/S免费节点订阅链接  更新时间 2026-06-03 11:20:19
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://singboxwindows.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://singboxwindows.github.io/uploads/2026/05/0-20260527.yaml
-- https://singboxwindows.github.io/uploads/2026/05/1-20260527.yaml
-- https://singboxwindows.github.io/uploads/2026/05/2-20260527.yaml
-- https://singboxwindows.github.io/uploads/2026/05/3-20260527.yaml
-- https://singboxwindows.github.io/uploads/2026/05/4-20260527.yaml
+- https://singboxwindows.github.io/uploads/2026/06/0-20260603.yaml
+- https://singboxwindows.github.io/uploads/2026/06/1-20260603.yaml
+- https://singboxwindows.github.io/uploads/2026/06/2-20260603.yaml
+- https://singboxwindows.github.io/uploads/2026/06/3-20260603.yaml
+- https://singboxwindows.github.io/uploads/2026/06/4-20260603.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://singboxwindows.github.io/uploads/2026/05/0-20260527.txt
-- https://singboxwindows.github.io/uploads/2026/05/1-20260527.txt
-- https://singboxwindows.github.io/uploads/2026/05/2-20260527.txt
-- https://singboxwindows.github.io/uploads/2026/05/3-20260527.txt
-- https://singboxwindows.github.io/uploads/2026/05/4-20260527.txt
+- https://singboxwindows.github.io/uploads/2026/06/0-20260603.txt
+- https://singboxwindows.github.io/uploads/2026/06/1-20260603.txt
+- https://singboxwindows.github.io/uploads/2026/06/2-20260603.txt
+- https://singboxwindows.github.io/uploads/2026/06/3-20260603.txt
+- https://singboxwindows.github.io/uploads/2026/06/4-20260603.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://singboxwindows.github.io/uploads/2026/05/20260527.json
+- https://singboxwindows.github.io/uploads/2026/06/20260603.json
 
 ## 更多Clash节点订阅 ：
 

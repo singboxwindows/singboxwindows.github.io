@@ -123,24 +123,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何针对不同用户设置流量配额？</h5></div>
+    <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
     <div class="panel-body">
-        管理员可以为每个用户单独设置流量上限或带宽限制。超过配额时可自动阻止或降速，保证服务器资源合理分配，避免单用户占用过多带宽影响其他用户。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的主要特点是什么？</h5></div>
-    <div class="panel-body">
-        WinXray 是一款基于 V2Ray 核心的 Windows 客户端，界面直观，支持 VMess、VLess、Trojan、Shadowsocks 等多协议。它提供一键导入订阅、节点测速、自动分流等功能，是适合初学者和进阶用户的图形化代理工具。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 是什么项目？</h5></div>
-    <div class="panel-body">
-        Mihomo 是 Clash Meta 的继任版本，也被称为 Clash.Meta 的社区分支。它优化了性能，支持更多协议如 Hysteria2、TUIC 等，同时提供更灵活的规则匹配系统，是目前非常流行的分流代理核心。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 的节点测速功能有何局限？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 节点测速只能显示延迟，无法测出带宽或实际下载速度。此外，测速结果受网络波动影响较大，建议结合实际使用体验来判断节点性能。<hr />    </div>
+        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 如何实现按应用分流？</h5></div>
@@ -153,14 +138,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         多策略组允许将节点按用途、延迟或地理位置分类，并结合规则文件自动分流流量。这样不同应用如游戏、视频和网页流量都能走最优节点，提高整体访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + Reality 与 Trojan 在性能上差异大吗？</h5></div>
+    <div class="panel-heading"><h5>Mihomo 是什么项目？</h5></div>
     <div class="panel-body">
-        两者性能相近。VLESS + Reality 伪装更自然，适合强封锁地区；Trojan 则依托标准 TLS 实现高速连接。选择取决于服务器支持与环境稳定性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按端口分流不同类型流量？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持根据端口匹配流量，将不同应用流量分配到指定节点。结合策略组可实现精准分流，提高访问速度和网络稳定性，优化整体网络体验和管理效率。<hr />    </div>
+        Mihomo 是 Clash Meta 的继任版本，也被称为 Clash.Meta 的社区分支。它优化了性能，支持更多协议如 Hysteria2、TUIC 等，同时提供更灵活的规则匹配系统，是目前非常流行的分流代理核心。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的日志界面怎么看节点状态？</h5></div>
@@ -168,9 +148,29 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Shadowrocket 的日志界面实时显示连接记录与节点响应延迟。绿色代表成功连接，红色代表失败，通过查看错误码可判断是 DNS 问题、TLS 握手失败还是代理超时。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 如何针对不同用户设置流量配额？</h5></div>
+    <div class="panel-body">
+        管理员可以为每个用户单独设置流量上限或带宽限制。超过配额时可自动阻止或降速，保证服务器资源合理分配，避免单用户占用过多带宽影响其他用户。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的主要特点是什么？</h5></div>
+    <div class="panel-body">
+        WinXray 是一款基于 V2Ray 核心的 Windows 客户端，界面直观，支持 VMess、VLess、Trojan、Shadowsocks 等多协议。它提供一键导入订阅、节点测速、自动分流等功能，是适合初学者和进阶用户的图形化代理工具。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的协议插件与加密方式如何搭配使用？</h5></div>
     <div class="panel-body">
-        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。    </div>
+        协议插件可增强抗封锁能力，加密方式确保数据安全。合理搭配可模拟正常流量特征，同时保障传输安全，有助于在封锁严格环境下维持节点可用性和稳定连接。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 的节点测速功能有何局限？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 节点测速只能显示延迟，无法测出带宽或实际下载速度。此外，测速结果受网络波动影响较大，建议结合实际使用体验来判断节点性能。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何按端口分流不同类型流量？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持根据端口匹配流量，将不同应用流量分配到指定节点。结合策略组可实现精准分流，提高访问速度和网络稳定性，优化整体网络体验和管理效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -218,16 +218,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-11.htm" title="9月11日 | SingBox每天更新20M/S免费节点订阅链接">9月11日 | SingBox每天更新20M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/sing-box-node-github-2026-10-5.htm" title="10月5日 | SingBox每天更新22.5M/S免费节点订阅链接">10月5日 | SingBox每天更新22.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/sing-box-node-share-2026-9-13.htm" title="9月13日 | SingBox每天更新18.9M/S免费节点订阅链接">9月13日 | SingBox每天更新18.9M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-3.htm" title="10月3日 | SingBox每天更新21.7M/S免费节点订阅链接">10月3日 | SingBox每天更新21.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-14-today-sing-box-node.htm" title="10月14日 | SingBox每天更新22.1M/S免费节点订阅链接">10月14日 | SingBox每天更新22.1M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-20-sing-box-node.htm" title="9月20日 | SingBox每天更新18.1M/S免费节点订阅链接">9月20日 | SingBox每天更新18.1M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-14-sing-box-node.htm" title="9月14日 | SingBox每天更新22.4M/S免费节点订阅链接">9月14日 | SingBox每天更新22.4M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/latest-sing-box-node-2026-10-23.htm" title="10月23日 | SingBox每天更新21.6M/S免费节点订阅链接">10月23日 | SingBox每天更新21.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-8-sing-box-github.htm" title="9月8日 | SingBox每天更新19.9M/S免费节点订阅链接">9月8日 | SingBox每天更新19.9M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/sing-box-node-share-2026-10-31.htm" title="10月31日 | SingBox每天更新20.8M/S免费节点订阅链接">10月31日 | SingBox每天更新20.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-6-node-share.htm" title="11月6日 | SingBox每天更新22.2M/S免费节点订阅链接">11月6日 | SingBox每天更新22.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-30-free-sing-box-node.htm" title="9月30日 | SingBox每天更新21.1M/S免费节点订阅链接">9月30日 | SingBox每天更新21.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/sing-box-node-share-2026-10-1.htm" title="10月1日 | SingBox每天更新21.6M/S免费节点订阅链接">10月1日 | SingBox每天更新21.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-21.htm" title="10月21日 | SingBox每天更新19.2M/S免费节点订阅链接">10月21日 | SingBox每天更新19.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-28-today-sing-box-node.htm" title="10月28日 | SingBox每天更新18.3M/S免费节点订阅链接">10月28日 | SingBox每天更新18.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-7.htm" title="10月7日 | SingBox每天更新19.1M/S免费节点订阅链接">10月7日 | SingBox每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/sing-box-node-share-2026-9-3.htm" title="9月3日 | SingBox每天更新21.3M/S免费节点订阅链接">9月3日 | SingBox每天更新21.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-free-subscribe-node.htm" title="9月2日 | SingBox每天更新22.4M/S免费节点订阅链接">9月2日 | SingBox每天更新22.4M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-18-node-share.htm" title="10月18日 | SingBox每天更新19.8M/S免费节点订阅链接">10月18日 | SingBox每天更新19.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-11-3.htm" title="11月3日 | SingBox每天更新22M/S免费节点订阅链接">11月3日 | SingBox每天更新22M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -238,6 +238,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+            </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
